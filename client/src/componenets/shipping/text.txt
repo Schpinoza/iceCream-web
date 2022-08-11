@@ -1,0 +1,90 @@
+ <h3>Billing Address</h3>
+        <label for="fname">
+          <i class="fa fa-user"></i> Full Name
+        </label>
+        <Input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="John M. Doe"
+        />
+        <label for="email">
+          <i class="fa fa-envelope"></i> Email
+        </label>
+        <Input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="john@example.com"
+        />
+        <label for="adr">
+          <i class="fa fa-address-card-o"></i> Address
+        </label>
+        <Input
+          type="text"
+          id="adr"
+          name="address"
+          placeholder="542 W. 15th Street"
+        />
+        <label for="city">
+          <i class="fa fa-institution"></i> City
+        </label>
+        <Input type="text" id="city" name="city" placeholder="New York" />
+        <label for="zip">Zip</label>
+        <Input type="text" id="zip" name="zip" placeholder="10001" />
+        <button>Finish Order</button>
+
+
+
+
+
+
+        import React, {useSelector} from "react";
+import Modal from "../UI/Modal";
+import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { resetIceCreamCart } from "../../store";
+
+const axios = require('axios');
+
+const Input = styled.Input`
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+`;
+const Shipping = ({ modalStatus }) => {
+  const dispatch = useDispatch();
+  const selectedCartItems = useSelector((state) => {
+    return state.iceCreamCart.items;
+  });
+
+  const postIceCreamFromCart = async()=>{
+        try{
+          const iceCreamObject = {
+            ...selectedCartItems,
+          }
+          await axios.post('/order',iceCreamObject);
+          console.log(iceCreamObject); 
+          
+        }catch(error){
+          console.log(error.message);
+          
+        }
+        dispatch(resetIceCreamCart([]))
+    
+    }
+
+
+  return (
+    <Modal modalStatus={modalStatus}>
+      <form onSubmit={postIceCreamFromCart}>
+       <label>hello</label>
+       <input/>
+      </form>
+    </Modal>
+  );
+};
+
+export default Shipping;

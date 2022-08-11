@@ -1,0 +1,85 @@
+import { useState } from "react";
+import {
+  TableRowIce,
+  TableRow,
+  DivColOne,
+  DivColTwo,
+  DivColThree,
+  DivColFour,
+  DivColClose,
+  DivColOneIce,
+  DivColTwoIce,
+  DivColThreeIce,
+  DivColFourClick,
+  DetailsContainer,
+  DivHead,
+  TableRowHeader,
+} from "./OrderListElements";
+
+function OrderListRow({ orderID, orderDetails, orderTotalPrice, orderItems }) {
+  const [showDetails, setShowDetails] = useState(false);
+
+  const ordererName = orderDetails.orderer;
+  const email = orderDetails.email;
+  const adrees = orderDetails.adrees;
+  const date = orderDetails.date;
+  const zipcode = orderDetails.zipcode;
+
+  const iceCreamDetails = orderItems.map((item) => {
+    const iceCreamflavor = item.iceCream.name;
+    const amount = item.amount;
+    const price = item.iceCream.price;
+    return (
+      <TableRowIce>
+        <DivColOneIce data-label="Ice Cream Type">{iceCreamflavor}</DivColOneIce>
+        <DivColTwoIce data-label="Price">{`${price} $`}</DivColTwoIce>
+        <DivColThreeIce data-label="Amount">{amount}</DivColThreeIce>
+      </TableRowIce>
+    );
+  });
+  const handleOpenClick = () => {
+    setShowDetails(true);
+  };
+  const handleCloseClick = () => {
+    setShowDetails(false);
+  };
+
+  return (
+    <>
+      <TableRow>
+        <DivColOne data-label="Order ID">{orderID}</DivColOne>
+        <DivColTwo data-label="Customer Name">{ordererName}</DivColTwo>
+        <DivColThree data-label="Amount">{orderTotalPrice}</DivColThree>
+        <DivColFourClick data-label="Order Details" onClick={handleOpenClick}>
+          Click For Details
+        </DivColFourClick>
+      </TableRow>
+      {showDetails && (
+        <DetailsContainer>
+            <DivHead>Order Details</DivHead>
+          <TableRowHeader>
+            <DivColOne>Email</DivColOne>
+            <DivColTwo>Adrees</DivColTwo>
+            <DivColThree>Date</DivColThree>
+            <DivColFour>Zipcode</DivColFour>
+          </TableRowHeader>
+          <TableRow>
+            <DivColOne data-label="Email">{email}</DivColOne>
+            <DivColTwo data-label="Adrees">{adrees}</DivColTwo>
+            <DivColThree data-label="Date">{date}</DivColThree>
+            <DivColFour data-label="Zipcode">{zipcode}</DivColFour>
+          </TableRow>
+          <TableRowHeader>
+            <DivColOne>Flavor</DivColOne>
+            <DivColTwo>Price</DivColTwo>
+            <DivColThree>Amount</DivColThree>
+          </TableRowHeader>
+          {iceCreamDetails}
+          <DivColClose onClick={handleCloseClick}>Close Details</DivColClose>
+        </DetailsContainer>
+      )}
+    </>
+  );
+}
+
+export default OrderListRow;
