@@ -2,6 +2,22 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import coverImg from "../../assets/one-page-icecream.jpg";
 
+const webkitKeyframesSlide = keyframes`
+&::-webkit-slide{
+	  0% { opacity:0; transform: translateX(-15vw); }
+	 20% { opacity:1; transform: translateX(-9vw); }
+	 80% { opacity:1; transform: translateX(9vw); }
+	100% { opacity:0; transform: translateX(15vw); }
+}
+  `;
+
+const keyframesSlide = keyframes`
+    0% { opacity:0; transform: translateX(-15vw); }
+ 20% { opacity:1; transform: translateX(-9vw); }
+ 80% { opacity:1; transform: translateX(9vw); }
+100% { opacity:0; transform: translateX(15vw); }
+ `;
+
 const Container = styled.div`
   background: url(${coverImg});
   background-position: center;
@@ -19,6 +35,7 @@ const ArrowAnim = styled.div`
 `;
 
 const Arrow = styled.div`
+  margin:10px;
   width: 10vw;
   height: 10vw;
   border: 2.5vw solid;
@@ -28,10 +45,9 @@ const Arrow = styled.div`
 
 const ArrowSliding = styled.div`
   position: absolute;
-  ${'' /* -webkit-animation: ${webkitKeyframesSlide} 4s linear infinite; */}
-  animation-name: ${keyframesSlide};
- animation-duration: 8s;
- animation-iteration-count: infinite;
+  -webkit-animation: ${webkitKeyframesSlide} 4s linear infinite;
+  animation: ${keyframesSlide} 4s linear infinite;
+
 `;
 
 const DelayOne = styled(ArrowSliding)`
@@ -46,21 +62,7 @@ const DelayThree = styled(ArrowSliding)`
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
 `;
-// const webkitKeyframesSlide = keyframes`
-// &:-webkit-slide{
-// 	  0% { opacity:0; transform: translateX(-15vw); }
-// 	 20% { opacity:1; transform: translateX(-9vw); }
-// 	 80% { opacity:1; transform: translateX(9vw); }
-// 	100% { opacity:0; transform: translateX(15vw); }
-// }
-//   `;
 
-const keyframesSlide = keyframes`
-    0% { opacity:0; transform: translateX(-15vw); }
- 20% { opacity:1; transform: translateX(-9vw); }
- 80% { opacity:1; transform: translateX(9vw); }
-100% { opacity:0; transform: translateX(15vw); }
- `;
 //   @keyframes slide {
 // 	  0% { opacity:0; transform: translateX(-15vw); }
 // 	 20% { opacity:1; transform: translateX(-9vw); }
