@@ -1,9 +1,10 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { config } = require('../../config');
 
 
 
 const init = async()=>{
-    mongoose.connect("mongodb+srv://admin-tal:tal2307@cluster0.gpidj.mongodb.net/?retryWrites=true&w=majority",{useNewUrlParser: true});
+    mongoose.connect(config.MONGODB_KEY,{useNewUrlParser: true});
 
 }
 

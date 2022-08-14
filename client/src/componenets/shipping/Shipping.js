@@ -1,24 +1,15 @@
 import React from "react";
 import Modal from "../UI/Modal";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { resetIceCreamCart } from "../../store";
+import Input from "../UI/Input";
+import { SmallOutlineButton } from "../../Globalstyles";
 
 const axios = require("axios");
 
-const Label = styled.label`
-  margin-bottom: 10px;
-  display: block;
-`;
-const Input = styled.input`
-  width: 90%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-`;
 
-const Shipping = ({ modalStatus, allItemsPrice }) => {
+
+const Shipping = ({ modalStatus, allItemsPrice,orderDone }) => {
   const dispatch = useDispatch();
   const selectedCartItems = useSelector((state) => {
     return state.iceCreamCart.items;
@@ -70,50 +61,45 @@ const Shipping = ({ modalStatus, allItemsPrice }) => {
     <Modal modalStatus={modalStatus}>
       <form onSubmit={submitHandler}>
         <h3>Billing Address</h3>
-        <Label htmlFor="fname">
-          <i className="fa fa-user"></i> Full Name
-        </Label>
         <Input
           type="text"
           id="fname"
           name="firstname"
           placeholder="John M. Doe"
-          required
+          iconClass="fa fa-user"
+          lableName="First name"
+         
         />
-        <Label htmlFor="email">
-          <i className="fa fa-envelope"></i> Email
-        </Label>
         <Input
           type="email"
           id="email"
           name="email"
           placeholder="john@example.com"
-          required
+          iconClass="fa faenvelope"
+          lableName="Email"
+          
         />
-        <Label htmlFor="adr">
-          <i className="fa fa-address-card-o"></i> Address
-        </Label>
         <Input
           type="text"
           id="adr"
           name="address"
           placeholder="542 W. 15th Street"
-          required
+          iconClass="fa fa-address-card-o"
+          lableName="Address"
+    
         />
-        <Label htmlFor="city">
-          <i className="fa fa-institution"></i> City
-        </Label>
         <Input
           type="text"
           id="city"
           name="city"
           placeholder="New York"
-          required
+          iconClass="fa fa-institution"
+          lableName="City"
+        
         />
-        <Label htmlFor="zip">Zip</Label>
-        <Input type="number" id="zip" name="zip" placeholder="10001" required />
-        <div>{`Total Order Price : ${allItemsPrice}`}</div>
-        <button>Finish Order</button>
+        <Input type="number" id="zip" name="zip" placeholder="10001"
+          lableName="Zip" required />
+        <SmallOutlineButton>Finsh Order</SmallOutlineButton>
       </form>
     </Modal>
   );
