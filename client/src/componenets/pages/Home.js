@@ -15,28 +15,52 @@ const Container = styled.div`
 `;
 
 const SideDiv = styled.div`
-  width: 20%;
+    display:block;
+  width: 25%;
   float: left;
-  margin-top: 20em;
-  margin-left: 10em;
+  text-align:center;
+  justify-content:center;
+     margin-left:3em; 
+    h1{
+     margin-top:9em; 
+    }
+  @media(max-width: 991px){
+    width:70%;
+
+  }
+  @media(min-width: 1235px){
+    width: 20%;
+
+  }
 `;
 
 
 const Img = styled.div`
 position:absolute;
 background-size:100%;
-height:400px;
-width:20%;
+height:350px;
+width:30%;
 background-repeat: no-repeat;
 border: 5px solid white;
 border-radius:5px;
+@media(max-width:991px){
+  display: none;
+}
+@media(min-width: 1235px){
+    width:30%;
+    height:450px;
+
+  }
 `
 const UpperImg = styled(Img)`
 background-image: url(${topImg});
 left:50%;
 top:20%;
 z-index:1;
-
+@media(min-width: 1235px){
+    width:25%;
+  left:52.5%
+  }
 `
 const UnderImgOne = styled(Img)`
 background-image: url(${bottomImgOne});
@@ -77,15 +101,14 @@ const Home = () => {
     <Container>
       <SideDiv>
         <h1>Who we are?</h1>
-        <p>
           it all started 35 yeas ago. we open our shop from all we had at the
           mooment. with all our passion of ice cream and ice cream makeing, and
           from our passion to creat the best ice cream we ate.<br/>You should enjoy it to!
-        </p>
         <MenuLinkBtn to="/iceCream">
           <OutlineButton primary>Order Here</OutlineButton>
         </MenuLinkBtn>
       </SideDiv>
+
         <UpperImg/>
         <UnderImgOne/>
         <UnderImgTwo/>
