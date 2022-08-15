@@ -12,7 +12,7 @@ const get = async(endpoint)=>{
       }
 
 }
-const post = (endpoint,iceCreamObject)=>{
+const post = async(endpoint,iceCreamObject)=>{
     try {
         await axios.post(baseUrl+endpoint, iceCreamObject);
 
