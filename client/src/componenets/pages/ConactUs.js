@@ -32,9 +32,9 @@ const Contact = () => {
 
   const submit = () => {
     if (name && email && message) {
-      const serviceId = "service_k7m5cdn";
-      const templateId = "template_id";
-      const userId = "user_id";
+      const serviceId = "service_q4v7djf";
+      const templateId = "template_kv1ni7o";
+      const userId = name;
       const templateParams = {
         name,
         email,

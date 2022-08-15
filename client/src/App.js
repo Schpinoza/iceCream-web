@@ -35,7 +35,7 @@ return (
 		<Route path='/iceCream' element={<IceCream/>}/>
 		<Route path='/' element={<Home/>} />
 		<Route path='/ConactUs' element={<ConactUs/>} />
-		<Route path='/cart' element={<Cart modalStatus = {()=> setModalOn(true) } orderTotalPrice={handleTotalPrice}/>} ></Route>
+		<Route path='/cart' element={<Cart  modalStatus = {()=> setModalOn(true) } orderTotalPrice={handleTotalPrice}/>} ></Route>
 		<Route path='/admin-order-list' element={<OrderList/>}/>
 	</Routes>
 	</BrowserRouter>

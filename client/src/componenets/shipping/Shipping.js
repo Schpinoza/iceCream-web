@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetIceCreamCart } from "../../store";
 import Input from "../UI/Input";
 import { SmallOutlineButton } from "../../Globalstyles";
+import httpService from "../../services/htmlService.js"
 
-const axios = require("axios");
 
 
 
@@ -17,32 +17,16 @@ const Shipping = ({ modalStatus, allItemsPrice,orderDone }) => {
   const date = new Date().toDateString("he-IL");
   const time = new Date().toLocaleTimeString("he-IL");
   const orderTime = `${date} ${time}`;
-  //need to make an arry that old a id and amount of the ice cream that been order
+
   
   const iceCream = selectedCartItems.map((iceCream) => ({
     iceCream: iceCream.id,
     
     amount: iceCream.amount,
   }));
-  const postIceCreamFromCart = async (userDetails) => {
-    try {
-      const iceCreamObject = {
-        userDetails,
-        items: [...iceCream],
-        orderTotalPrice:allItemsPrice,
-        
-      };
-      await axios.post("/v1/order", iceCreamObject);
-      console.log("click");
-      console.log(iceCreamObject);
-    } catch (error) {
-      console.log(error.message);
-    }
-    dispatch(resetIceCreamCart([]));
-    modalStatus();
-  };
 
-  const submitHandler = async (e) => {
+
+  const submitOrder = async (e) => {
     const { fname, email, adr: address, zip, city } = e.target;
     await e.preventDefault();
     const userDetails = {
@@ -53,13 +37,21 @@ const Shipping = ({ modalStatus, allItemsPrice,orderDone }) => {
       zipcode: +zip.value,
       date: orderTime,
     };
+    const iceCreamObject = {
+      userDetails,
+      items: [...iceCream],
+      orderTotalPrice:allItemsPrice,
+      
+    };
     
-    await postIceCreamFromCart(userDetails);
+    await httpService.postIceCreamFromCart(iceCreamObject);
+    await dispatch(resetIceCreamCart([]));
+    await modalStatus();
   };
 
   return (
     <Modal modalStatus={modalStatus}>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitOrder}>
         <h3>Billing Address</h3>
         <Input
           type="text"

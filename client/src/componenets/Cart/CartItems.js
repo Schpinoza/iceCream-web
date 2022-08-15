@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { removeIceCream } from "../../store";
 import 
 {
   RemoveIceCreamButton,
@@ -15,17 +17,20 @@ import
 
 
 
-function CartItems({ name, price, img, alt, amount, removeItem,product: item }) {
-
+function CartItems({ img,chosenIceCream }) {
+const {name, price, alt, amount}=chosenIceCream
   const totalItemPrice = price * amount;
-
+  const dispatch = useDispatch();
+  const handleClick = (iceCream) => {
+    dispatch(removeIceCream(iceCream));
+  };
 
   return (
     <ItemCart>
       <InfoWrap>
         <CartSection>
           <CartButtonSection>
-            <RemoveIceCreamButton onClick={()=>{removeItem(item)}}>
+            <RemoveIceCreamButton onClick={()=>{handleClick(chosenIceCream)}}>
               {amount>1 ? "-1" : "X"}
             </RemoveIceCreamButton>
           </CartButtonSection>

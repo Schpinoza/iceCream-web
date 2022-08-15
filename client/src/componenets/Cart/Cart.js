@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CartItems from "./CartItems";
-import { useDispatch } from "react-redux";
-import { removeIceCream} from "../../store";
+
 import {Images} from "../../Images";
 import styled from "styled-components";
 
@@ -46,14 +45,11 @@ const OrderButton = styled.button`
   }
 `;
 const Cart = ({modalStatus,orderTotalPrice}) => {
-  const dispatch = useDispatch();
+
 
   const selectedCartItems = useSelector((state) => {
     return state.iceCreamCart.items;
   });
-  const handleClick = (item) => {
-    dispatch(removeIceCream(item));
-  };
 
 
   let allItemsPrice = 0
@@ -73,19 +69,13 @@ orderTotalPrice(allItemsPrice)
 return (
   <>
       <Ul>
-        {selectedCartItems.map((item) => {
-          const imgName = item.name.replace(/\s/g, '')
+        {selectedCartItems.map((chosenIceCream) => {
+          const imgName = chosenIceCream.name.replace(/\s/g, '')
           return (
             <CartItems
-              id={item.id}
-              key={item.id}
-              name={item.name}
+              key={chosenIceCream.id}
               img={Images[imgName]}
-              price={item.price}
-              amount={item.amount}
-              removeItem={handleClick}
-              product={item}
-
+              choseniceCream={chosenIceCream}
             />
           );
         })}
