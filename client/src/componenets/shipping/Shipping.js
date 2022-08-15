@@ -9,10 +9,10 @@ import httpService from "../../services/htmlService.js"
 
 
 
-const Shipping = ({ modalStatus, allItemsPrice,orderDone }) => {
+const Shipping = ({ modalStatus, allItemsPrice}) => {
   const dispatch = useDispatch();
   const selectedCartItems = useSelector((state) => {
-    return state.iceCreamCart.items;
+    return state.iceCreamCart.iceCreams;
   });
   const date = new Date().toDateString("he-IL");
   const time = new Date().toLocaleTimeString("he-IL");
@@ -20,8 +20,7 @@ const Shipping = ({ modalStatus, allItemsPrice,orderDone }) => {
 
   
   const iceCream = selectedCartItems.map((iceCream) => ({
-    iceCream: iceCream.id,
-    
+    iceCream: iceCream._id,
     amount: iceCream.amount,
   }));
 

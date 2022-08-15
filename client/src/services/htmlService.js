@@ -23,17 +23,21 @@ const post = async(endpoint,iceCreamObject)=>{
     }
 
 
-
-const getIceCreams= async ()=>{
+const getIceCreams = async ()=>{
     return await get('iceCream')
   }
-const postIceCreamFromCart =async (iceCreamObject)=>{
-
+const postIceCreamFromCart = async (iceCreamObject)=>{
+  console.log(iceCreamObject);
     return await post(`order`,iceCreamObject)
 }
 
+const getOrderList = async ()=>{
+  return await get('order/admin-order-list')
+
+}
 export default {
     getIceCreams,
     postIceCreamFromCart,
+    getOrderList,
 
 }

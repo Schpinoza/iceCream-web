@@ -18,7 +18,7 @@ import
 
 
 function CartItems({ img,chosenIceCream }) {
-const {name, price, alt, amount}=chosenIceCream
+const {name, price, alt, amount}= chosenIceCream
   const totalItemPrice = price * amount;
   const dispatch = useDispatch();
   const handleClick = (iceCream) => {

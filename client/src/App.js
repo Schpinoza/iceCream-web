@@ -17,11 +17,6 @@ import ConactUs from './componenets/pages/ConactUs';
 function App() {
 	const [modalOn,setModalOn]=useState(false);
 	const [allItemsPrice,setAllItemsPrice] =useState()
-	// const dispatch = useDispatch();
-	// const selectedCartItems = useSelector((state) => {
-	//   return state.iceCreamCart.items;
-	// });
-
 	const handleTotalPrice =(totalPrice)=>{
 		setAllItemsPrice(totalPrice)
 	}

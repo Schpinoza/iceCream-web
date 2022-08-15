@@ -49,7 +49,8 @@ function IceCreamItem({ iceCream }) {
   const [stockStatus, setStockStatus] = useState(0);
   const imgName = name.replace(/\s/g, "");
   const updateSupply =(supplyAmount-stockStatus)
-
+  
+  
   const handleChange = (e) => {
     setSelectedAmount(+e.target.value);
   };

@@ -47,13 +47,12 @@ const OrderButton = styled.button`
 const Cart = ({modalStatus,orderTotalPrice}) => {
 
 
-  const selectedCartItems = useSelector((state) => {
-    return state.iceCreamCart.items;
+  const selectedCartIceCream = useSelector((state) => {
+    return state.iceCreamCart.iceCreams;
   });
 
-
   let allItemsPrice = 0
-  selectedCartItems.map((item)=>{
+  selectedCartIceCream.map((item)=>{
   const itemAmount = Number(item.amount)
   const itemPrice = Number(item.price)
   allItemsPrice = (itemAmount)*(itemPrice)+allItemsPrice
@@ -69,18 +68,18 @@ orderTotalPrice(allItemsPrice)
 return (
   <>
       <Ul>
-        {selectedCartItems.map((chosenIceCream) => {
+        {selectedCartIceCream.map((chosenIceCream) => {
           const imgName = chosenIceCream.name.replace(/\s/g, '')
           return (
             <CartItems
-              key={chosenIceCream.id}
+              key={chosenIceCream._id}
               img={Images[imgName]}
-              choseniceCream={chosenIceCream}
+              chosenIceCream={chosenIceCream}
             />
           );
         })}
-        <TotalPrice>{selectedCartItems.length > 0 && `Total Cart Price : ${allItemsPrice}$`}</TotalPrice>
-        <li>{selectedCartItems.length > 0 && <OrderButton onClick={modalStatus}>Order</OrderButton>}</li>
+        <TotalPrice>{selectedCartIceCream.length > 0 && `Total Cart Price : ${allItemsPrice}$`}</TotalPrice>
+        <li>{selectedCartIceCream.length > 0 && <OrderButton onClick={modalStatus}>Order</OrderButton>}</li>
       </Ul>
     </>
   );
