@@ -26,6 +26,7 @@ function OrderListRow({ orderID, orderDetails, orderTotalPrice, orderItems }) {
     const iceCreamflavor = item.iceCream.name;
     const amount = item.amount;
     const price = item.iceCream.price;
+    
     return (
       <TableRowIce>
         <DivColOne data-label="Ice Cream Type">{iceCreamflavor}</DivColOne>

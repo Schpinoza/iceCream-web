@@ -8,8 +8,7 @@ const CardDiv = styled.div`
     margin:auto;
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 14px;
-    background-color:#FFFDD0;
+    background-color:rgb(220,220,220);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-auto-rows:auto;
