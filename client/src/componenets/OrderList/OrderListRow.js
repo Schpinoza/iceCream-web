@@ -7,9 +7,6 @@ import {
   DivColThree,
   DivColFour,
   DivColClose,
-  DivColOneIce,
-  DivColTwoIce,
-  DivColThreeIce,
   DivColFourClick,
   DetailsContainer,
   DivHead,
@@ -31,9 +28,9 @@ function OrderListRow({ orderID, orderDetails, orderTotalPrice, orderItems }) {
     const price = item.iceCream.price;
     return (
       <TableRowIce>
-        <DivColOneIce data-label="Ice Cream Type">{iceCreamflavor}</DivColOneIce>
-        <DivColTwoIce data-label="Price">{`${price} $`}</DivColTwoIce>
-        <DivColThreeIce data-label="Amount">{amount}</DivColThreeIce>
+        <DivColOne data-label="Ice Cream Type">{iceCreamflavor}</DivColOne>
+        <DivColTwo data-label="Price">{`${price} $`}</DivColTwo>
+        <DivColThree data-label="Amount">{amount}</DivColThree>
       </TableRowIce>
     );
   });
