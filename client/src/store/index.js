@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { items: [] };
+const initialState = { iceCreams: [] };
 
 const cartSlice = createSlice({
   name: "iceCreamCart",
@@ -8,37 +8,37 @@ const cartSlice = createSlice({
   reducers: {
     addIceCream: (state, action) => {
     
-      ;
-      const existingCartIceCreamIndex = state.items.findIndex((iceCream) => {
-        return iceCream.id === action.payload.id;
+
+      const existingCartIceCreamIndex = state.iceCreams.findIndex((iceCream) => {
+        return iceCream._id === action.payload._id;
       });
-      const existingCartIceCream = state.items[existingCartIceCreamIndex];
+      const existingCartIceCream = state.iceCreams[existingCartIceCreamIndex];
       if (existingCartIceCream) {
-        const updatedItem = {
+        const updatedIceCream = {
           ...existingCartIceCream,
           amount: existingCartIceCream.amount + action.payload.amount,
         };
         
-        state.items[existingCartIceCreamIndex] = updatedItem;
+        state.iceCreams[existingCartIceCreamIndex] = updatedIceCream;
       } else {
-        state.items = [...state.items, action.payload];
+        state.iceCreams = [...state.iceCreams, action.payload];
       }
     },
 
     removeIceCream: (state, action) => {
-      const existingCartIceCreamIndex = state.items.findIndex((iceCream) => {
+      const existingCartIceCreamIndex = state.iceCreams.findIndex((iceCream) => {
         return iceCream.id === action.payload.id;
       });
-      if (state.items[existingCartIceCreamIndex].amount > 1) {
-        state.items[existingCartIceCreamIndex] = { ...state.items[existingCartIceCreamIndex], amount: action.payload.amount - 1 };
+      if (state.iceCreams[existingCartIceCreamIndex].amount > 1) {
+        state.iceCreams[existingCartIceCreamIndex] = { ...state.iceCreams[existingCartIceCreamIndex], amount: action.payload.amount - 1 };
       } else {
-        state.items = state.items.filter(item=>item.id !== action.payload.id)
+        state.iceCreams = state.iceCreams.filter(iceCream=>iceCream._id !== action.payload._id)
     }
   },
 
     resetIceCreamCart: (state,action) =>{
 
-      state.items = action.payload
+      state.iceCreams = action.payload
     }
 }
 });

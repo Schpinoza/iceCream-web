@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Images } from "../../../Images";
 import CartIcon from "../../Cart/CartIcon";
 import {SmallOutlineButton} from "../../../Globalstyles";
+import { useDispatch } from "react-redux";
+import { addIceCream} from "../../../store";
 
 const Container = styled.form`
   
@@ -40,16 +42,26 @@ font-size:1.5rem;
 letter-spacing: 1.5px;
 `
 
-function IceCreamItem({ name, price, alt, onClick, supplyAmount }) {
+function IceCreamItem({ iceCream }) {
+  const dispatch = useDispatch()
+  const { name, price, alt, supplyAmount } = iceCream
   const [selectedAmount, setSelectedAmount] = useState("none");
   const [stockStatus, setStockStatus] = useState(0);
   const imgName = name.replace(/\s/g, "");
   const updateSupply =(supplyAmount-stockStatus)
-  console.log(updateSupply);
-
+  
+  
   const handleChange = (e) => {
     setSelectedAmount(+e.target.value);
   };
+  const addIceCreamToCart = (iceCream, amount) => {
+    const item={
+      ...iceCream,
+      amount:amount
+    }
+    dispatch(addIceCream(item))
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setStockStatus((prev)=>{
@@ -57,10 +69,11 @@ function IceCreamItem({ name, price, alt, onClick, supplyAmount }) {
       return totalReduceAmount
     });
     if (supplyAmount >= selectedAmount) {
-      onClick(selectedAmount);
+      addIceCreamToCart(iceCream,selectedAmount);
       setSelectedAmount("none");
     }
   };
+
 
   return (
     <div>

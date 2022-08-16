@@ -134,5 +134,6 @@ background-color: #fefefe;
 }
 `;
 export const SmallOutlineButton = styled(OutlineButton)`
+margin:10px;
 padding:1px 10px;
 `;

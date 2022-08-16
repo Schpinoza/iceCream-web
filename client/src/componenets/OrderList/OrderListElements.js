@@ -16,20 +16,7 @@ export const TableName = styled.h2`
   margin: 20px 0;
   text-align: center;
 `
-export const TableHeader = styled.li`
-    background-color: #95A5A6;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border-radius: 3px;
-    padding: 25px 30px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    @media(max-width: 767px){
-        display:none;
-    }
-`
+
 export const TableRowHeader = styled.li`
     background-color: #95A5A6;
     font-size: 14px;
@@ -39,6 +26,13 @@ export const TableRowHeader = styled.li`
     padding: 25px 30px;
     display: flex;
     justify-content: space-between;
+    @media(max-width: 767px){
+        display:none;
+    }
+`
+
+export const TableHeader = styled(TableRowHeader)`
+    margin-bottom: 25px;
     @media(max-width: 767px){
         display:none;
     }
@@ -57,65 +51,35 @@ export const TableRow = styled.li`
     }
 
 `
-export const DivColOne = styled.div `
+const DivCol = styled.div`
+@media(max-width: 767px){
+    flex-basis: 100%;
+    display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+    }
+}
+`
+export const DivColOne = styled(DivCol) `
 flex-basis: 40%;
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
+
 `
-export const DivColTwo = styled.div `
+export const DivColTwo = styled(DivCol) `
 flex-basis: 30%;
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
+
 `
-export const DivColThree = styled.div `
+export const DivColThree = styled(DivCol) `
 flex-basis: 20%;
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
+
 `
-export const DivColFour = styled.div `
+export const DivColFour = styled(DivCol) `
 flex-basis: 10%;
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
+
 `
 
 export const DivColClose = styled.div `
@@ -156,53 +120,8 @@ padding:10px;
 color:#2C3333;
 
 `
-export const DivColOneIce = styled.div `
-flex-basis: 40%;
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
-`
-export const DivColTwoIce = styled.div `
-flex-basis: 30%;
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
-`
-export const DivColThreeIce = styled.div `
-flex-basis: 20%;
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
-`
 
-export const DivColFourClick = styled.div `
+export const DivColFourClick = styled(DivCol) `
 flex-basis: 10%;
 cursor: pointer;
 background-color:#b9bcbd;
@@ -212,18 +131,7 @@ border-radius:5px;
 &:hover{
     background-color:#87898a;
 }
-@media(max-width: 767px){
-    flex-basis: 100%;
-    display: flex;
-      padding: 10px 0;
-      &:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
+
 `
 
 export const TableRowIce = styled.li`

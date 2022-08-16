@@ -1,15 +1,3 @@
-// import { useSelector } from 'react-redux';
-
-
-// const selectedCartItems = useSelector((state) => {
-//   return state.iceCreamCart.items;
-// });
-
-
-// console.log(selectedCartItems);
-
-
-
 
 export const Images = {
   Vanilla:require('./assets/Vanilla.jpg'),

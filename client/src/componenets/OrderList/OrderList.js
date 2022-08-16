@@ -9,24 +9,23 @@ import {
   DivColFour,
 } from "./OrderListElements";
 import OrderListRow from "./OrderListRow"
-const axios = require("axios");
+import htmlService from "../../services/htmlService";
+
 
 const OrderList = () => {
   const [allOrders, setAllOrders] = useState([]);
 
-  async function getOrderList() {
-    try {
-      const response = await axios.get("v1/order/admin-order-list");
-      const data = await response.data;
-      console.log(data)
-      setAllOrders(data);
-    } catch (error) {
-      console.error(error);
-    }
+  const orderedList= async ()=>{
+
+    const orders =await htmlService.getOrderList()
+    setAllOrders(orders)
   }
-  useEffect(() => {
-    getOrderList();
-  }, []);
+
+
+
+  useEffect(()=>{
+    orderedList()
+  },[])
 
   return (
     <Container>

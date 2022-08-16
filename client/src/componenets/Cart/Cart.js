@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CartItems from "./CartItems";
-import { useDispatch } from "react-redux";
-import { removeIceCream} from "../../store";
+
 import {Images} from "../../Images";
 import styled from "styled-components";
 
@@ -46,18 +45,14 @@ const OrderButton = styled.button`
   }
 `;
 const Cart = ({modalStatus,orderTotalPrice}) => {
-  const dispatch = useDispatch();
 
-  const selectedCartItems = useSelector((state) => {
-    return state.iceCreamCart.items;
+
+  const selectedCartIceCream = useSelector((state) => {
+    return state.iceCreamCart.iceCreams;
   });
-  const handleClick = (item) => {
-    dispatch(removeIceCream(item));
-  };
-
 
   let allItemsPrice = 0
-  selectedCartItems.map((item)=>{
+  selectedCartIceCream.map((item)=>{
   const itemAmount = Number(item.amount)
   const itemPrice = Number(item.price)
   allItemsPrice = (itemAmount)*(itemPrice)+allItemsPrice
@@ -73,24 +68,18 @@ orderTotalPrice(allItemsPrice)
 return (
   <>
       <Ul>
-        {selectedCartItems.map((item) => {
-          const imgName = item.name.replace(/\s/g, '')
+        {selectedCartIceCream.map((chosenIceCream) => {
+          const imgName = chosenIceCream.name.replace(/\s/g, '')
           return (
             <CartItems
-              id={item.id}
-              key={item.id}
-              name={item.name}
+              key={chosenIceCream._id}
               img={Images[imgName]}
-              price={item.price}
-              amount={item.amount}
-              removeItem={handleClick}
-              product={item}
-
+              chosenIceCream={chosenIceCream}
             />
           );
         })}
-        <TotalPrice>{selectedCartItems.length > 0 && `Total Cart Price : ${allItemsPrice}$`}</TotalPrice>
-        <li>{selectedCartItems.length > 0 && <OrderButton onClick={modalStatus}>Order</OrderButton>}</li>
+        <TotalPrice>{selectedCartIceCream.length > 0 && `Total Cart Price : ${allItemsPrice}$`}</TotalPrice>
+        <li>{selectedCartIceCream.length > 0 && <OrderButton onClick={modalStatus}>Order</OrderButton>}</li>
       </Ul>
     </>
   );
