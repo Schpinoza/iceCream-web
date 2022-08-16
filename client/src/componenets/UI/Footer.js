@@ -2,9 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Footerdiv = styled.footer`
+  position:;
+  bottom:0%;
+  margin: 0;
   display: block;
   text-align: center;
-  background-color: rgba(255, 253, 208, 0.5);
+  background-color: rgba(0,0, 0, 0.5);
   padding: 1.5rem;
   color: rgba(0, 0, 0, 0.4);
 `;

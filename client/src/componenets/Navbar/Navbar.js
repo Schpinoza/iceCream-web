@@ -30,7 +30,7 @@ const Navbar = () => {
                     <NavbarContainer>
                         <NavLogo to="/">
                             <NavIcon/>
-                            Home Made
+                            Ice's
                         </NavLogo>
                         <MenuIcon onClick={handleClick}>
                             {click ? <BiX/> : <BiMenu/>}

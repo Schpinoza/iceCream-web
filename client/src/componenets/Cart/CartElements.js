@@ -6,7 +6,7 @@ const CartButtonSection = styled.div`
   float: left;
 `;
 const ItemCart = styled.li`
-  background-color: rgba(255, 253, 208, 0.5);
+  background-color: rgba(220,215,225, 0.7);
   display: block;
   width: 50%;
   vertical-align: middle;
@@ -45,7 +45,7 @@ const PriceAmount = styled.p`
   text-align: right;
   font-weight: bold;
   font-size: 1.25em;
-  color: #00ff00;
+  color: #20bf6b;
 `;
 const Img = styled.img`
   display: block;

@@ -9,7 +9,7 @@ const TotalPrice = styled.li`
 text-align:center;
 font-weight: bold;
 font-size: 1.25em;
-color: #00ff00;
+color: #20bf6b;
 
 `
 const Ul = styled.ul`
@@ -19,16 +19,16 @@ const Ul = styled.ul`
   list-style-type: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
-  background-color: rgba(255, 253, 208, 0.4);
+  background-color:rgba(220,220,220,0.2);
 `;
 
 const OrderButton = styled.button`
   font-family: "Open Sans";
-  color: #ffc0cb !important;
+  color: rgba(0,0,0,0.5) !important;
   text-transform: uppercase;
   background: #e0e0dc;
   padding: 20px;
-  border: 4px solid #ffc0cb !important;
+  border: 4px solid rgba(0,0,0,0.5) !important;
   border-radius: 10px;
   text-decoration: none;
   width: 50%;
@@ -38,6 +38,7 @@ const OrderButton = styled.button`
   margin: auto;
 
   &:hover {
+    font-weight:bold;
     color: #20bf6b !important;
     border-radius: 50px;
     border-color: #20bf6b !important;
