@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-
+import { useDispatch } from "react-redux";
+import { shownModal } from "../../store";
 
 const ModalOverlayDiv = styled.div`
     position: fixed;
@@ -43,9 +44,13 @@ const BackdropDiv = styled.div`
     background-color: rgba(0, 0, 0, 0.75);
   `
 
-const Backdrop = ({ modalStatus }) => {
+const Backdrop = () => {
+  const dispatch=useDispatch()
+  const handleModal = ()=>{
+    dispatch(shownModal(false))
+  }
 
-  return <BackdropDiv onClick={modalStatus} />;
+  return <BackdropDiv onClick={handleModal} />;
 };
 
 
@@ -61,12 +66,12 @@ const ModalOverlay = ({ children }) => {
 
 
 const portalElement = document.getElementById("shipping-modal");
-const Modal = ({ children, modalStatus }) => {
+const Modal = ({ children }) => {
     
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop modalStatus={modalStatus} />,
+        <Backdrop/>,
         portalElement
       )}
       {ReactDOM.createPortal(

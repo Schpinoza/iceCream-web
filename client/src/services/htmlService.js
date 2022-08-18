@@ -35,9 +35,11 @@ const getOrderList = async ()=>{
   return await get('order/admin-order-list')
 
 }
-export default {
-    getIceCreams,
-    postIceCreamFromCart,
-    getOrderList,
+
+const htmlService ={
+  getIceCreams,
+  postIceCreamFromCart,
+  getOrderList,
 
 }
+export default  htmlService

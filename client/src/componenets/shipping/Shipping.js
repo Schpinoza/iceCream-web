@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "../UI/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { resetIceCreamCart } from "../../store";
+import { resetIceCreamCart,shownModal } from "../../store";
 import Input from "../UI/Input";
 import { SmallOutlineButton } from "../../Globalstyles";
 import httpService from "../../services/htmlService.js"
@@ -9,11 +9,17 @@ import httpService from "../../services/htmlService.js"
 
 
 
-const Shipping = ({ modalStatus, allItemsPrice}) => {
+const Shipping = () => {
   const dispatch = useDispatch();
   const selectedCartItems = useSelector((state) => {
     return state.iceCreamCart.iceCreams;
   });
+
+  const allItemsPrice = useSelector((state)=>{
+		return state.totalPrice.orderTotalPrice
+	})
+
+
   const date = new Date().toDateString("he-IL");
   const time = new Date().toLocaleTimeString("he-IL");
   const orderTime = `${date} ${time}`;
@@ -26,7 +32,7 @@ const Shipping = ({ modalStatus, allItemsPrice}) => {
 
 
   const submitOrder = async (e) => {
-    const { fname, email, adr: address, zip, city } = e.target;
+    const { fname, email,address, zip, city } = e.target;
     await e.preventDefault();
     const userDetails = {
       orderer: fname.value,
@@ -45,11 +51,11 @@ const Shipping = ({ modalStatus, allItemsPrice}) => {
     
     await httpService.postIceCreamFromCart(iceCreamObject);
     await dispatch(resetIceCreamCart([]));
-    await modalStatus();
+    await dispatch(shownModal(false))
   };
 
   return (
-    <Modal modalStatus={modalStatus}>
+    <Modal>
       <form onSubmit={submitOrder}>
         <h3>Billing Address</h3>
         <Input
@@ -72,7 +78,7 @@ const Shipping = ({ modalStatus, allItemsPrice}) => {
         />
         <Input
           type="text"
-          id="adr"
+          id="address"
           name="address"
           placeholder="542 W. 15th Street"
           iconClass="fa fa-address-card-o"

@@ -1,9 +1,8 @@
-import React, { useState} from 'react';
-import { Provider } from 'react-redux'
+import React, { useEffect, useState} from 'react';
+import { Provider, useSelector } from 'react-redux'
 import Navbar from './componenets/Navbar/Navbar'
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from "./componenets/pages/Home"
-import store from './store';
 import IceCream from './componenets/IceCream/IceCream';
 import Footer from './componenets/UI/Footer';
 import Cart from './componenets/Cart/Cart';
@@ -14,28 +13,27 @@ import ConactUs from './componenets/pages/ConactUs';
 
 
 
-function App() {
-	const [modalOn,setModalOn]=useState(false);
-	const [allItemsPrice,setAllItemsPrice] =useState()
-	const handleTotalPrice =(totalPrice)=>{
-		setAllItemsPrice(totalPrice)
-	}
+const App=()=>{
+	const modalOn = useSelector((state)=>{
+		return state.modal.modalStatus
+	  })
+	
 return (
-	<Provider store = {store}>
+	<>
 	<GlobalStyles/>
-	    <>{modalOn && <Shipping modalStatus = {()=> setModalOn(false) } allItemsPrice={allItemsPrice}/>}</>
+	    <>{modalOn && <Shipping/>}</>
 	<BrowserRouter>
 	<Navbar />
 	<Routes>
 		<Route path='/iceCream' element={<IceCream/>}/>
 		<Route path='/' element={<Home/>} />
 		<Route path='/ConactUs' element={<ConactUs/>} />
-		<Route path='/cart' element={<Cart  modalStatus = {()=> setModalOn(true) } orderTotalPrice={handleTotalPrice}/>} ></Route>
+		<Route path='/cart' element={<Cart/>} ></Route>
 		<Route path='/admin-order-list' element={<OrderList/>}/>
 	</Routes>
 	</BrowserRouter>
 	<Footer/>	
-	</Provider>
+</>
 );
 }
 

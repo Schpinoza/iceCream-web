@@ -3,7 +3,7 @@ import AvilableIceCream from './AvilableIceCream'
 import img from "../../assets/mainicecreamshop.jpg"
 import styled from 'styled-components'
 
-const Text = styled.div`
+const ImgText = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -16,7 +16,7 @@ const Text = styled.div`
   color:#272727;
 
 `
-const ImgText = styled.div`
+const Img = styled.div`
 background-image: url(${img});
 background-size:cover;
 background-position: center;
@@ -25,14 +25,15 @@ height:700px;
 text-align:center;
 `
 const IceCream = () => {
+
+
   return (
     <div >
-        <ImgText>
-          <Text>
+        <Img>
+          <ImgText>
           Pick your ice cream!<br/> Then Enjoy it.
-          </Text>
-        </ImgText>
-        {/* <BackgroundImage src={img} alt="ice-cream" /> */}
+          </ImgText>
+        </Img>
     <AvilableIceCream/>
     </div>
   )

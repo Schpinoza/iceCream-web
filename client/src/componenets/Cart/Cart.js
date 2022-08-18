@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartItems from "./CartItems";
 
 import {Images} from "../../Images";
 import styled from "styled-components";
+import { setTotalPrice, shownModal } from "../../store";
 
 const TotalPrice = styled.li`
 text-align:center;
@@ -12,7 +13,7 @@ font-size: 1.25em;
 color: #20bf6b;
 
 `
-const Ul = styled.ul`
+const CartUl = styled.ul`
   max-width: 100%;
   margin: auto;
   padding: 1rem;
@@ -45,9 +46,8 @@ const OrderButton = styled.button`
     transition: all 0.6s ease 0s;
   }
 `;
-const Cart = ({modalStatus,orderTotalPrice}) => {
-
-
+const Cart = () => {
+  const dispacth=useDispatch()
   const selectedCartIceCream = useSelector((state) => {
     return state.iceCreamCart.iceCreams;
   });
@@ -61,14 +61,17 @@ return allItemsPrice
 })
 
 useEffect(()=>{
-orderTotalPrice(allItemsPrice)
+dispacth(setTotalPrice(allItemsPrice))
 },[allItemsPrice])
 
+const modalHandler =()=>{
+ dispacth(shownModal(true))
+}
 
 
 return (
   <>
-      <Ul>
+      <CartUl>
         {selectedCartIceCream.map((chosenIceCream) => {
           const imgName = chosenIceCream.name.replace(/\s/g, '')
           return (
@@ -80,8 +83,8 @@ return (
           );
         })}
         <TotalPrice>{selectedCartIceCream.length > 0 && `Total Cart Price : ${allItemsPrice}$`}</TotalPrice>
-        <li>{selectedCartIceCream.length > 0 && <OrderButton onClick={modalStatus}>Order</OrderButton>}</li>
-      </Ul>
+        <li>{selectedCartIceCream.length > 0 && <OrderButton onClick={modalHandler}>Order</OrderButton>}</li>
+      </CartUl>
     </>
   );
 };

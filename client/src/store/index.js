@@ -1,14 +1,13 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { iceCreams: [] };
+const IceCreaminitialState = { iceCreams: [] };
+
 
 const cartSlice = createSlice({
   name: "iceCreamCart",
-  initialState,
+  initialState: IceCreaminitialState,
   reducers: {
     addIceCream: (state, action) => {
-    
-
       const existingCartIceCreamIndex = state.iceCreams.findIndex((iceCream) => {
         return iceCream._id === action.payload._id;
       });
@@ -42,13 +41,40 @@ const cartSlice = createSlice({
     }
 }
 });
+
+const shippingModalInitialState = { modalStatus: false}
+
+const modalSlice = createSlice({
+  name:"modalStatus",
+  initialState:shippingModalInitialState,
+  reducers:{
+    shownModal:(state,action)=>{
+      state.modalStatus = action.payload; 
+    }
+  }
+})
+
+const TotalPrice = { orderTotalPrice: 0}
+
+const totalOrderPrice = createSlice({
+  name:"totalPrice",
+  initialState:TotalPrice,
+  reducers:{
+    setTotalPrice:(state,action)=>{
+      state.orderTotalPrice = action.payload; 
+    }
+  }
+
+})
 const store = configureStore({
   reducer: {
     iceCreamCart: cartSlice.reducer,
-    removeIceCream: cartSlice.reducer,
-    resetIceCreamCart: cartSlice.reducer,
+    modal: modalSlice.reducer,
+    TotalPrice: totalOrderPrice.reducer
   },
 });
 
 export const { addIceCream, removeIceCream, resetIceCreamCart } = cartSlice.actions;
+export const { shownModal }=modalSlice.actions
+export const {setTotalPrice}=totalOrderPrice.actions
 export default store;

@@ -13,7 +13,7 @@ const SideDivLeft = styled.div`
   box-shadow: 15px 15px rgba(136, 136, 136, 0.5);
   width: 25%;
   float: left;
-  margin-top: 17.5em;
+  margin-top: 10.5em;
   margin-left: 6em;
   text-align: left;
 `;

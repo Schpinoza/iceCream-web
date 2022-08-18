@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import emailjs from "emailjs-com";
 import styled from "styled-components";
 import Input from "../UI/Input";
@@ -90,8 +91,6 @@ const Contact = () => {
       setEmail("");
       setMessage("");
       setEmailSent(true);
-    } else {
-      // setIsValid(false);
     }
   };
 
