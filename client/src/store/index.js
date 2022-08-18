@@ -62,6 +62,7 @@ const totalOrderPrice = createSlice({
   reducers:{
     setTotalPrice:(state,action)=>{
       state.orderTotalPrice = action.payload; 
+      console.log("state",state.orderTotalPrice,"action", action.payload);
     }
   }
 
@@ -70,7 +71,7 @@ const store = configureStore({
   reducer: {
     iceCreamCart: cartSlice.reducer,
     modal: modalSlice.reducer,
-    TotalPrice: totalOrderPrice.reducer
+    totalPrice: totalOrderPrice.reducer
   },
 });
 

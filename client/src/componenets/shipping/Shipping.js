@@ -18,6 +18,7 @@ const Shipping = () => {
   const allItemsPrice = useSelector((state)=>{
 		return state.totalPrice.orderTotalPrice
 	})
+  console.log(allItemsPrice);
 
 
   const date = new Date().toDateString("he-IL");
