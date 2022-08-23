@@ -58,12 +58,9 @@ const Button = styled(OutlineButton)`
   text-transform: uppercase;
 `;
 const DisplySpan = styled.span`
-  display: none;
   text-align: center;
-
-  &.visible {
-    display: block;
-  }
+  color:black;
+  font-weight:bold;
 `;
 
 const Contact = () => {
@@ -116,9 +113,9 @@ const Contact = () => {
         ></ContactTextArea>
         <Button onClick={submit}>Send Message</Button>
 
-        <DisplySpan className={emailSent ? "visible" : null}>
+        {emailSent && <DisplySpan>
           Thank you for your message, we will be in touch in no time!
-        </DisplySpan>
+        </DisplySpan>}
       </Form>
     </ConactContainer>
   );

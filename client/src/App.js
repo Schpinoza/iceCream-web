@@ -1,5 +1,5 @@
-import React, { useEffect, useState} from 'react';
-import { Provider, useSelector } from 'react-redux'
+
+import { useSelector } from 'react-redux'
 import Navbar from './componenets/Navbar/Navbar'
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from "./componenets/pages/Home"
@@ -14,15 +14,16 @@ import ConactUs from './componenets/pages/ConactUs';
 
 
 const App=()=>{
+
 	const modalOn = useSelector((state)=>{
 		return state.modal.modalStatus
 	  })
 	
 return (
 	<>
+	<BrowserRouter>
 	<GlobalStyles/>
 	    <>{modalOn && <Shipping/>}</>
-	<BrowserRouter>
 	<Navbar />
 	<Routes>
 		<Route path='/iceCream' element={<IceCream/>}/>

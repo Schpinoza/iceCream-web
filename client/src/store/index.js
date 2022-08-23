@@ -62,7 +62,6 @@ const totalOrderPrice = createSlice({
   reducers:{
     setTotalPrice:(state,action)=>{
       state.orderTotalPrice = action.payload; 
-      console.log("state",state.orderTotalPrice,"action", action.payload);
     }
   }
 

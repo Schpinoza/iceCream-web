@@ -13,7 +13,7 @@ const ImgText = styled.div`
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   font-size: 340%;
-  color:#272727;
+  color:white;
 
 `
 const Img = styled.div`

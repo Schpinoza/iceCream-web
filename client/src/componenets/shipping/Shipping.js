@@ -5,12 +5,14 @@ import { resetIceCreamCart,shownModal } from "../../store";
 import Input from "../UI/Input";
 import { SmallOutlineButton } from "../../Globalstyles";
 import httpService from "../../services/htmlService.js"
+import {useNavigate} from "react-router-dom"
 
 
 
 
 const Shipping = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const selectedCartItems = useSelector((state) => {
     return state.iceCreamCart.iceCreams;
   });
@@ -52,7 +54,9 @@ const Shipping = () => {
     
     await httpService.postIceCreamFromCart(iceCreamObject);
     await dispatch(resetIceCreamCart([]));
-    await dispatch(shownModal(false))
+    await dispatch(shownModal(false));
+    await navigate('/');
+
   };
 
   return (
