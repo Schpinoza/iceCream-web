@@ -4,10 +4,23 @@ const app = require("../index");
 const request = supertest.agent(app);
 
 describe("Ice-Cream-Api - crud actions", function () {
-  jest.setTimeout(15000);
-  it("should get all ice-creams", async (done) => {
-    const allIceCreams = await request
-      .get("/v1/iceCream")
-    console.log("allIceCreams", allIceCreams.body);
+  beforeAll((done) => {
+    done();
+  });
+  it("should get all ice-creams", async () => {
+    const allIceCreams = await request.get("/v1/iceCream");
+  });
+  it("should create a new ice cream", async () => {
+    const createIceCream = await request.post("/v1").send({
+      name: test,
+      price: 1,
+      supplyAmount: 1,
+    });
+    expect(createIceCream.status).toEqual(201)
+    expect(createIceCream.body).toHaveProperty("post");
+  });
+  afterAll((done) => {
+    // Closing the DB connection allows Jest to exit successfully.
+    done();
   });
 });
