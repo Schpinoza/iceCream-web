@@ -1,4 +1,3 @@
-
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import AboutUs from "../../assets/AboutUs.webp";
@@ -7,7 +6,7 @@ import { MenuLinkBtn } from "../Navbar/NavbarElements";
 import { OutlineButton, SmallOutlineButton } from "../../Globalstyles";
 
 const SideDivLeft = styled.div`
-  padding:30px;
+  padding: 30px;
   border-radius: 10px;
   background-color: white;
   box-shadow: 15px 15px rgba(136, 136, 136, 0.5);
@@ -20,7 +19,7 @@ const SideDivLeft = styled.div`
 
 const SideDivRight = styled.div`
   width: 35%;
-  
+
   position: absolute;
   left: 65%;
   top: 50%;
@@ -178,32 +177,6 @@ const Home = () => {
 
 export default Home;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from "react";
 // import styled from "styled-components";
 // import { useState } from "react";
@@ -226,9 +199,9 @@ export default Home;
 //   float: left;
 //   text-align:center;
 //   justify-content:center;
-//      margin-left:3em; 
+//      margin-left:3em;
 //     h1{
-//      margin-top:9em; 
+//      margin-top:9em;
 //     }
 //   @media(max-width: 991px){
 //     width:70%;
@@ -239,7 +212,6 @@ export default Home;
 
 //   }
 // `;
-
 
 // const Img = styled.div`
 // position:absolute;
@@ -281,17 +253,6 @@ export default Home;
 // left:36%;
 // top:25%;
 // `
-
-
-
-
-
-
-
-
-
-
-
 
 // const Home = () => {
 //   const [newData, setNewData] = useState("");

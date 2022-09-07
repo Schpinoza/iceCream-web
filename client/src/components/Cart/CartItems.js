@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { removeIceCream } from "../../store";
-import 
-{
+import {
   RemoveIceCreamButton,
   Img,
   PriceAmount,
@@ -11,14 +10,10 @@ import
   CartSection,
   InfoWrap,
   CartButtonSection,
-} from "./CartElements"
+} from "./CartElements";
 
-
-
-
-
-function CartItems({ img,chosenIceCream }) {
-const {name, price, alt, amount}= chosenIceCream
+function CartItems({ img, chosenIceCream }) {
+  const { name, price, alt, amount } = chosenIceCream;
   const totalItemPrice = price * amount;
   const dispatch = useDispatch();
   const handleClick = (iceCream) => {
@@ -30,8 +25,12 @@ const {name, price, alt, amount}= chosenIceCream
       <InfoWrap>
         <CartSection>
           <CartButtonSection>
-            <RemoveIceCreamButton onClick={()=>{handleClick(chosenIceCream)}}>
-              {amount>1 ? "-1" : "X"}
+            <RemoveIceCreamButton
+              onClick={() => {
+                handleClick(chosenIceCream);
+              }}
+            >
+              {amount > 1 ? "-1" : "X"}
             </RemoveIceCreamButton>
           </CartButtonSection>
           <ItemName>{name}</ItemName>

@@ -6,7 +6,7 @@ const CartButtonSection = styled.div`
   float: left;
 `;
 const ItemCart = styled.li`
-  background-color: rgba(220,215,225, 0.7);
+  background-color: rgba(220, 215, 225, 0.7);
   display: block;
   width: 50%;
   vertical-align: middle;

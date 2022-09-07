@@ -19,7 +19,7 @@ const Form = styled.div`
   margin: auto;
   background: rgba(255, 255, 255, 0.1);
   height: 50%;
-  max-width:500px;
+  max-width: 500px;
   width: 50%;
   color: #fff;
   font-family: sans-serif;

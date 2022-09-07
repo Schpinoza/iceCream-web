@@ -8,24 +8,20 @@ import {
   DivColThree,
   DivColFour,
 } from "./OrderListElements";
-import OrderListRow from "./OrderListRow"
-import htmlService from "../../services/htmlService";
-
+import OrderListRow from "./OrderListRow";
+import APIRequest from "../../services/APIRequest";
 
 const OrderList = () => {
   const [allOrders, setAllOrders] = useState([]);
 
-  const orderedList= async ()=>{
+  const orderedList = async () => {
+    const orders = await APIRequest.getOrderList();
+    setAllOrders(orders);
+  };
 
-    const orders =await htmlService.getOrderList()
-    setAllOrders(orders)
-  }
-
-
-
-  useEffect(()=>{
-    orderedList()
-  },[])
+  useEffect(() => {
+    orderedList();
+  }, []);
 
   return (
     <Container>

@@ -2,17 +2,16 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItems from "./CartItems";
 
-import {Images} from "../../Images";
+import { Images } from "../../Images";
 import styled from "styled-components";
 import { setTotalPrice, shownModal } from "../../store";
 
 const TotalPrice = styled.li`
-text-align:center;
-font-weight: bold;
-font-size: 1.25em;
-color: #20bf6b;
-
-`
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #20bf6b;
+`;
 const CartUl = styled.ul`
   max-width: 100%;
   margin: auto;
@@ -20,16 +19,16 @@ const CartUl = styled.ul`
   list-style-type: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
-  background-color:rgba(220,220,220,0.2);
+  background-color: rgba(220, 220, 220, 0.2);
 `;
 
 const OrderButton = styled.button`
   font-family: "Open Sans";
-  color: rgba(0,0,0,0.5) !important;
+  color: rgba(0, 0, 0, 0.5) !important;
   text-transform: uppercase;
   background: #e0e0dc;
   padding: 20px;
-  border: 4px solid rgba(0,0,0,0.5) !important;
+  border: 4px solid rgba(0, 0, 0, 0.5) !important;
   border-radius: 10px;
   text-decoration: none;
   width: 50%;
@@ -39,7 +38,7 @@ const OrderButton = styled.button`
   margin: auto;
 
   &:hover {
-    font-weight:bold;
+    font-weight: bold;
     color: #20bf6b !important;
     border-radius: 50px;
     border-color: #20bf6b !important;
@@ -47,33 +46,32 @@ const OrderButton = styled.button`
   }
 `;
 const Cart = () => {
-  const dispacth=useDispatch()
+  const dispacth = useDispatch();
   const selectedCartIceCream = useSelector((state) => {
     return state.iceCreamCart.iceCreams;
   });
 
-  let allItemsPrice = 0
-  selectedCartIceCream.map((item)=>{
-  const itemAmount = Number(item.amount)
-  const itemPrice = Number(item.price)
-  allItemsPrice = (itemAmount)*(itemPrice)+allItemsPrice
-return allItemsPrice
-})
+  let allItemsPrice = 0;
+  selectedCartIceCream.map((item) => {
+    const itemAmount = Number(item.amount);
+    const itemPrice = Number(item.price);
+    allItemsPrice = itemAmount * itemPrice + allItemsPrice;
+    return allItemsPrice;
+  });
 
-useEffect(()=>{
-dispacth(setTotalPrice(allItemsPrice))
-},[allItemsPrice])
+  useEffect(() => {
+    dispacth(setTotalPrice(allItemsPrice));
+  }, [allItemsPrice]);
 
-const modalHandler =()=>{
- dispacth(shownModal(true))
-}
+  const modalHandler = () => {
+    dispacth(shownModal(true));
+  };
 
-
-return (
-  <>
+  return (
+    <>
       <CartUl>
         {selectedCartIceCream.map((chosenIceCream) => {
-          const imgName = chosenIceCream.name.replace(/\s/g, '')
+          const imgName = chosenIceCream.name.replace(/\s/g, "");
           return (
             <CartItems
               key={chosenIceCream._id}
@@ -82,8 +80,15 @@ return (
             />
           );
         })}
-        <TotalPrice>{selectedCartIceCream.length > 0 && `Total Cart Price : ${allItemsPrice}$`}</TotalPrice>
-        <li>{selectedCartIceCream.length > 0 && <OrderButton onClick={modalHandler}>Order</OrderButton>}</li>
+        <TotalPrice>
+          {selectedCartIceCream.length > 0 &&
+            `Total Cart Price : ${allItemsPrice}$`}
+        </TotalPrice>
+        <li>
+          {selectedCartIceCream.length > 0 && (
+            <OrderButton onClick={modalHandler}>Order</OrderButton>
+          )}
+        </li>
       </CartUl>
     </>
   );

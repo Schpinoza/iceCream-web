@@ -13,8 +13,8 @@ const Container = styled.form`
   margin: auto;
 `;
 const AmountInput = styled.select`
-  margin:auto;
-  height:50%;
+  margin: auto;
+  height: 50%;
   border-radius: 15px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.25);
   border: none;
@@ -86,29 +86,28 @@ function IceCreamItem({ iceCream }) {
         <ProdactName>{name}</ProdactName>
         <Img src={Images[imgName]} alt={alt} />
         <GridContainer>
-        <Price>{`price: ${price}$`}</Price>
-        <Lable htmlFor="amount">amount: </Lable>
-        <AmountInput
-          name="itemAmount"
-          id="amount"
-          onChange={handleChange}
-          value={selectedAmount}
-        >
-          <option
-            style={supplyAmount >= 0 && { color: "red" }}
-            value="none"
-            disabled
-            hidden
+          <Price>{`price: ${price}$`}</Price>
+          <Lable htmlFor="amount">amount: </Lable>
+          <AmountInput
+            name="itemAmount"
+            id="amount"
+            onChange={handleChange}
+            value={selectedAmount}
           >
-            {supplyAmount <= 0 ? "Out of stock" : "Choose amount"}
-          </option>
-          {updateSupply >= 1 && <option value="1">1</option>}
-          {updateSupply >= 2 && <option value="2">2</option>}
-          {updateSupply >= 3 && <option value="3">3</option>}
-          {updateSupply >= 4 && <option value="4">4</option>}
-          {updateSupply >= 5 && <option value="5">5</option>}
-        </AmountInput>
-
+            <option
+              style={supplyAmount >= 0 && { color: "red" }}
+              value="none"
+              disabled
+              hidden
+            >
+              {supplyAmount <= 0 ? "Out of stock" : "Choose amount"}
+            </option>
+            {updateSupply >= 1 && <option value="1">1</option>}
+            {updateSupply >= 2 && <option value="2">2</option>}
+            {updateSupply >= 3 && <option value="3">3</option>}
+            {updateSupply >= 4 && <option value="4">4</option>}
+            {updateSupply >= 5 && <option value="5">5</option>}
+          </AmountInput>
         </GridContainer>
         {selectedAmount !== "none" && (
           <SmallOutlineButton>

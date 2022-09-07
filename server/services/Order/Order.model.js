@@ -1,26 +1,25 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const item ={
-    iceCream: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Ice_cream',
-    },
-    amount: Number,
-  }
+const item = {
+  iceCream: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Ice_cream",
+  },
+  amount: Number,
+};
 
 const Order = new Schema({
   userDetails: {
     orderer: String,
-    email:String,
+    email: String,
     adrees: String,
     city: String,
     zipcode: Number,
-    date:String,
+    date: String,
   },
   items: [item],
-  orderTotalPrice:Number,
-
+  orderTotalPrice: Number,
 });
 
 const OrderedModel = mongoose.model("Order", Order);
