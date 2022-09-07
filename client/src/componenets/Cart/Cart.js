@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItems from "./CartItems";
+import Card from "../UI/Card";
 
 import { Images } from "../../Images";
 import styled from "styled-components";
@@ -12,7 +13,7 @@ const TotalPrice = styled.li`
   font-size: 1.25em;
   color: #20bf6b;
 `;
-const CartUl = styled.ul`
+const CartUI = styled.ul`
   max-width: 100%;
   margin: auto;
   padding: 1rem;
@@ -68,8 +69,8 @@ const Cart = () => {
   };
 
   return (
-    <>
-      <CartUl>
+    <CartUI>
+
         {selectedCartIceCream.map((chosenIceCream) => {
           const imgName = chosenIceCream.name.replace(/\s/g, "");
           return (
@@ -89,8 +90,7 @@ const Cart = () => {
             <OrderButton onClick={modalHandler}>Order</OrderButton>
           )}
         </li>
-      </CartUl>
-    </>
+    </CartUI>
   );
 };
 

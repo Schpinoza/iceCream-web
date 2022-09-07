@@ -17,7 +17,7 @@ const cartSlice = createSlice({
           ...existingCartIceCream,
           amount: existingCartIceCream.amount + action.payload.amount,
         };
-        
+        console.log(state.iceCreams);
         state.iceCreams[existingCartIceCreamIndex] = updatedIceCream;
       } else {
         state.iceCreams = [...state.iceCreams, action.payload];

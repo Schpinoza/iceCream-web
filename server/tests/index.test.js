@@ -18,7 +18,7 @@ describe("Ice-Cream-Api - crud actions", function () {
         price: 1,
         supplyAmount: 1,
       })
-      console.log(createIceCream);
+      .expect(201)
   });
   afterAll((done) => {
     // Closing the DB connection allows Jest to exit successfully.
