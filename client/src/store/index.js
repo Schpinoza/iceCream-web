@@ -1,10 +1,10 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const IceCreaminitialState = { iceCreams: [] };
+const iceCreamInitialState = { iceCreams: [] };
 
 const cartSlice = createSlice({
   name: "iceCreamHelper",
-  initialState: IceCreaminitialState,
+  initialState: iceCreamInitialState,
   reducers: {
     addIceCream: (state, action) => {
       const chosenIceCreamIndex = state.iceCreams.findIndex((iceCream) => {
@@ -24,11 +24,9 @@ const cartSlice = createSlice({
     },
 
     removeIceCream: (state, action) => {
-      const chosenCartIceCreamIndex = state.iceCreams.findIndex(
-        (iceCream) => {
-          return iceCream.id === action.payload.id;
-        }
-      );
+      const chosenCartIceCreamIndex = state.iceCreams.findIndex((iceCream) => {
+        return iceCream.id === action.payload.id;
+      });
       if (state.iceCreams[chosenCartIceCreamIndex].amount > 1) {
         state.iceCreams[chosenCartIceCreamIndex] = {
           ...state.iceCreams[chosenCartIceCreamIndex],
@@ -59,15 +57,14 @@ const modalSlice = createSlice({
   },
 });
 
-const TotalPrice = { orderTotalPrice: 0 };
+const orderPrice = { orderTotalPrice: 0 };
 
 const totalOrderPrice = createSlice({
-  name: "totalPrice",
-  initialState: TotalPrice,
+  name: "orderPrice",
+  initialState: orderPrice,
   reducers: {
-    setTotalPrice: (state, action) => {
+    setOrderPrice: (state, action) => {
       state.orderTotalPrice = action.payload;
-      console.log("state", state.orderTotalPrice, "action", action.payload);
     },
   },
 });
@@ -75,12 +72,12 @@ const store = configureStore({
   reducer: {
     iceCreamHelper: cartSlice.reducer,
     modal: modalSlice.reducer,
-    totalPrice: totalOrderPrice.reducer,
+    orderPrice: totalOrderPrice.reducer,
   },
 });
 
 export const { addIceCream, removeIceCream, resetIceCreamCart } =
   cartSlice.actions;
 export const { shownModal } = modalSlice.actions;
-export const { setTotalPrice } = totalOrderPrice.actions;
+export const { setOrderPrice } = totalOrderPrice.actions;
 export default store;

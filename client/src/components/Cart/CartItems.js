@@ -1,20 +1,19 @@
 import { useDispatch } from "react-redux";
 import { removeIceCream } from "../../store";
 import {
-  RemoveIceCreamButton,
+  IceCreamRemovalButton,
   Img,
-  PriceAmount,
+  SumAmountPrice,
   Price,
   ItemName,
   ItemCart,
   CartSection,
-  InfoWrap,
   CartButtonSection,
 } from "./CartElements";
 
 function CartItems({ img, chosenIceCream }) {
   const { name, price, alt, amount } = chosenIceCream;
-  const totalItemPrice = price * amount;
+  const sumAmountPrice = price * amount;
   const dispatch = useDispatch();
   const handleClick = (iceCream) => {
     dispatch(removeIceCream(iceCream));
@@ -22,23 +21,21 @@ function CartItems({ img, chosenIceCream }) {
 
   return (
     <ItemCart>
-      <InfoWrap>
-        <CartSection>
-          <CartButtonSection>
-            <RemoveIceCreamButton
-              onClick={() => {
-                handleClick(chosenIceCream);
-              }}
-            >
-              {amount > 1 ? "-1" : "X"}
-            </RemoveIceCreamButton>
-          </CartButtonSection>
-          <ItemName>{name}</ItemName>
-          <Img src={img} alt={alt} />
-          <Price>{`${amount} x $${price}`}</Price>
-          <PriceAmount>{` Total of: ${totalItemPrice} $`}</PriceAmount>
-        </CartSection>
-      </InfoWrap>
+      <CartSection>
+        <CartButtonSection>
+          <IceCreamRemovalButton
+            onClick={() => {
+              handleClick(chosenIceCream);
+            }}
+          >
+            {amount > 1 ? "-1" : "X"}
+          </IceCreamRemovalButton>
+        </CartButtonSection>
+        <ItemName>{name}</ItemName>
+        <Img src={img} alt={alt} />
+        <Price>{`${amount} x $${price}`}</Price>
+        <SumAmountPrice>{` Total of: ${sumAmountPrice} $`}</SumAmountPrice>
+      </CartSection>
     </ItemCart>
   );
 }

@@ -13,7 +13,13 @@ import {
   TableRowHeader,
 } from "./OrderListElements";
 
-function OrderListRow({ orderID, orderDetails, orderTotalPrice, orderItems }) {
+function OrderListRow({ order }) {
+  const {
+    _id: orderID,
+    userDetails: orderDetails,
+    items: orderItems,
+    orderTotalPrice,
+  } = order;
   const [showDetails, setShowDetails] = useState(false);
 
   const ordererName = orderDetails.orderer;
@@ -35,10 +41,10 @@ function OrderListRow({ orderID, orderDetails, orderTotalPrice, orderItems }) {
       </TableRowIce>
     );
   });
-  const handleOpenClick = () => {
+  const detailsOn = () => {
     setShowDetails(true);
   };
-  const handleCloseClick = () => {
+  const detailsOff = () => {
     setShowDetails(false);
   };
 
@@ -48,7 +54,7 @@ function OrderListRow({ orderID, orderDetails, orderTotalPrice, orderItems }) {
         <DivColOne data-label="Order ID">{orderID}</DivColOne>
         <DivColTwo data-label="Customer Name">{ordererName}</DivColTwo>
         <DivColThree data-label="Amount">{orderTotalPrice}</DivColThree>
-        <DivColFourClick data-label="Order Details" onClick={handleOpenClick}>
+        <DivColFourClick data-label="Order Details" onClick={detailsOn}>
           Click For Details
         </DivColFourClick>
       </TableRow>
@@ -73,7 +79,7 @@ function OrderListRow({ orderID, orderDetails, orderTotalPrice, orderItems }) {
             <DivColThree>Amount</DivColThree>
           </TableRowHeader>
           {iceCreamDetails}
-          <DivColClose onClick={handleCloseClick}>Close Details</DivColClose>
+          <DivColClose onClick={detailsOff}>Close Details</DivColClose>
         </DetailsContainer>
       )}
     </>

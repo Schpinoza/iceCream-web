@@ -9,13 +9,13 @@ import {
   DivColFour,
 } from "./OrderListElements";
 import OrderListRow from "./OrderListRow";
-import APIRequest from "../../services/APIRequest";
+import APIRequests from "../../services/APIRequests";
 
 const OrderList = () => {
   const [allOrders, setAllOrders] = useState([]);
 
   const orderedList = async () => {
-    const orders = await APIRequest.getOrderList();
+    const orders = await APIRequests.getOrderList();
     setAllOrders(orders);
   };
 
@@ -34,15 +34,7 @@ const OrderList = () => {
           <DivColFour>Order Details</DivColFour>
         </TableHeader>
         {allOrders.map((order) => {
-          return (
-            <OrderListRow
-              key={order._id}
-              orderID={order._id}
-              orderDetails={order.userDetails}
-              orderTotalPrice={order.orderTotalPrice}
-              orderItems={order.items}
-            />
-          );
+          return <OrderListRow key={order._id} order={order} />;
         })}
       </ul>
     </Container>

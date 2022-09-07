@@ -21,17 +21,17 @@ const post = async (endpoint, iceCreamObject) => {
 const getIceCreams = async () => {
   return await get("iceCream");
 };
-const sendOrder = async (iceCreamObject) => {
-  return await post(`order`, iceCreamObject);
+const sendOrder = async (order) => {
+  return await post(`order`, order);
 };
 
 const getOrderList = async () => {
   return await get("order/adminOrderList");
 };
 
-const APIRequest = {
+const APIRequests = {
   getIceCreams,
   sendOrder,
   getOrderList,
 };
-export default APIRequest;
+export default APIRequests;

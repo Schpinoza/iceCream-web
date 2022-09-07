@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+const Card = ({ children }) => {
+  return <CardDiv>{children}</CardDiv>;
+};
+
+export default Card;
+
 const CardDiv = styled.div`
   text-align: center;
   max-width: 100%;
@@ -12,9 +18,3 @@ const CardDiv = styled.div`
   grid-auto-rows: auto;
   grid-gap: 1rem;
 `;
-
-const Card = ({ children }) => {
-  return <CardDiv>{children}</CardDiv>;
-};
-
-export default Card;

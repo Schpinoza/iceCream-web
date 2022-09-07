@@ -4,6 +4,38 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { shownModal } from "../../store";
 
+const Backdrop = () => {
+  const dispatch = useDispatch();
+  const handleModal = () => {
+    dispatch(shownModal(false));
+  };
+
+  return <BackdropDiv onClick={handleModal} />;
+};
+
+const ModalOverlay = ({ children }) => {
+  return (
+    <ModalOverlayDiv>
+      <div>{children}</div>
+    </ModalOverlayDiv>
+  );
+};
+
+const portalElement = document.getElementById("shipping-modal");
+const Modal = ({ children }) => {
+  return (
+    <>
+      {ReactDOM.createPortal(<Backdrop />, portalElement)}
+      {ReactDOM.createPortal(
+        <ModalOverlay>{children}</ModalOverlay>,
+        portalElement
+      )}
+    </>
+  );
+};
+
+export default Modal;
+
 const ModalOverlayDiv = styled.div`
   position: fixed;
   top: 20vh;
@@ -42,35 +74,3 @@ const BackdropDiv = styled.div`
   z-index: 20;
   background-color: rgba(0, 0, 0, 0.75);
 `;
-
-const Backdrop = () => {
-  const dispatch = useDispatch();
-  const handleModal = () => {
-    dispatch(shownModal(false));
-  };
-
-  return <BackdropDiv onClick={handleModal} />;
-};
-
-const ModalOverlay = ({ children }) => {
-  return (
-    <ModalOverlayDiv>
-      <div>{children}</div>
-    </ModalOverlayDiv>
-  );
-};
-
-const portalElement = document.getElementById("shipping-modal");
-const Modal = ({ children }) => {
-  return (
-    <>
-      {ReactDOM.createPortal(<Backdrop />, portalElement)}
-      {ReactDOM.createPortal(
-        <ModalOverlay>{children}</ModalOverlay>,
-        portalElement
-      )}
-    </>
-  );
-};
-
-export default Modal;

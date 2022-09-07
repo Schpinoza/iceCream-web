@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
+const Footer = () => {
+  return <Footerdiv>copyright 2022</Footerdiv>;
+};
+
+export default Footer;
+
 const Footerdiv = styled.footer`
   position: ;
   bottom: 0%;
@@ -11,9 +17,3 @@ const Footerdiv = styled.footer`
   padding: 1.5rem;
   color: rgba(0, 0, 0, 0.4);
 `;
-
-const Footer = () => {
-  return <Footerdiv>copyright 2022</Footerdiv>;
-};
-
-export default Footer;

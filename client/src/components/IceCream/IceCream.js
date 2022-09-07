@@ -3,6 +3,22 @@ import AvilableIceCream from "./AvilableIceCream";
 import img from "../../assets/mainicecreamshop.jpg";
 import styled from "styled-components";
 
+const IceCream = () => {
+  return (
+    <>
+      <Img>
+        <ImgText>
+          Pick your ice cream!
+          <br /> Then Enjoy it.
+        </ImgText>
+      </Img>
+      <AvilableIceCream />
+    </>
+  );
+};
+
+export default IceCream;
+
 const ImgText = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,18 +39,3 @@ const Img = styled.div`
   height: 700px;
   text-align: center;
 `;
-const IceCream = () => {
-  return (
-    <div>
-      <Img>
-        <ImgText>
-          Pick your ice cream!
-          <br /> Then Enjoy it.
-        </ImgText>
-      </Img>
-      <AvilableIceCream />
-    </div>
-  );
-};
-
-export default IceCream;

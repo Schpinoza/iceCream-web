@@ -20,42 +20,40 @@ const Navbar = () => {
   const closeMenu = () => setClick(false);
 
   return (
-    <div>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <Nav>
-          <NavbarContainer>
-            <NavLogo to="/">
-              <NavIcon />
-              Ice's
-            </NavLogo>
-            <MenuIcon onClick={handleClick}>
-              {click ? <BiX /> : <BiMenu />}
-            </MenuIcon>
+    <IconContext.Provider value={{ color: "#fff" }}>
+      <Nav>
+        <NavbarContainer>
+          <NavLogo to="/">
+            <NavIcon />
+            Ice's
+          </NavLogo>
+          <MenuIcon onClick={handleClick}>
+            {click ? <BiX /> : <BiMenu />}
+          </MenuIcon>
 
-            <Menu onClick={handleClick} click={click}>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/">
-                  Home
-                </MenuLink>
-              </MenuItem>
-              <MenuItem>
-                <MenuLink onClick={closeMenu} to="/ConactUs">
-                  Conact Us
-                </MenuLink>
-              </MenuItem>
-              <MenuItem>
-                <MenuLink to="/iceCream">Shop</MenuLink>
-              </MenuItem>
-              <MenuItemBtn>
-                <MenuLinkBtn to="/cart">
-                  <Button primary>Cart</Button>
-                </MenuLinkBtn>
-              </MenuItemBtn>
-            </Menu>
-          </NavbarContainer>
-        </Nav>
-      </IconContext.Provider>
-    </div>
+          <Menu onClick={handleClick} click={click}>
+            <MenuItem>
+              <MenuLink onClick={closeMenu} to="/">
+                Home
+              </MenuLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuLink onClick={closeMenu} to="/ConactUs">
+                Conact Us
+              </MenuLink>
+            </MenuItem>
+            <MenuItem>
+              <MenuLink to="/iceCream">Shop</MenuLink>
+            </MenuItem>
+            <MenuItemBtn>
+              <MenuLinkBtn to="/cart">
+                <Button primary>Cart</Button>
+              </MenuLinkBtn>
+            </MenuItemBtn>
+          </Menu>
+        </NavbarContainer>
+      </Nav>
+    </IconContext.Provider>
   );
 };
 

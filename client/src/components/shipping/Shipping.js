@@ -4,24 +4,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetIceCreamCart, shownModal } from "../../store";
 import Input from "../UI/Input";
 import { SmallOutlineButton } from "../../Globalstyles";
-import APIRequest from "../../services/APIRequest.js";
+import APIRequests from "../../services/APIRequests.js";
 
 const Shipping = () => {
   const dispatch = useDispatch();
-  const selectedCartItems = useSelector((state) => {
-    return state.iceCreamCart.iceCreams;
+  const selectedOrder = useSelector((state) => {
+    return state.iceCreamHelper.iceCreams;
   });
 
   const allItemsPrice = useSelector((state) => {
     return state.totalPrice.orderTotalPrice;
   });
-  console.log(allItemsPrice);
 
   const date = new Date().toDateString("he-IL");
   const time = new Date().toLocaleTimeString("he-IL");
   const orderTime = `${date} ${time}`;
 
-  const iceCream = selectedCartItems.map((iceCream) => ({
+  const iceCream = selectedOrder.map((iceCream) => ({
     iceCream: iceCream._id,
     amount: iceCream.amount,
   }));
@@ -37,13 +36,13 @@ const Shipping = () => {
       zipcode: +zip.value,
       date: orderTime,
     };
-    const iceCreamObject = {
+    const order = {
       userDetails,
       items: [...iceCream],
       orderTotalPrice: allItemsPrice,
     };
 
-    await APIRequest.sendOrder(iceCreamObject);
+    await APIRequests.sendOrder(order);
     await dispatch(resetIceCreamCart([]));
     await dispatch(shownModal(false));
   };

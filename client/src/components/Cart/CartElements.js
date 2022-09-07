@@ -7,7 +7,7 @@ const CartButtonSection = styled.div`
 `;
 const ItemCart = styled.li`
   background-color: rgba(220, 215, 225, 0.7);
-  display: block;
+  display: table;
   width: 50%;
   vertical-align: middle;
   margin: 1rem auto;
@@ -23,10 +23,7 @@ const ItemCart = styled.li`
   }
 `;
 
-const InfoWrap = styled.div`
-  display: table;
-  width: 100%;
-`;
+const InfoWrap = styled.div``;
 const CartSection = styled.div`
   display: table-cell;
   vertical-align: middle;
@@ -40,7 +37,7 @@ const Price = styled.p`
   font-size: 0.85em;
   color: #777777;
 `;
-const PriceAmount = styled.p`
+const SumAmountPrice = styled.p`
   padding-right: 40px;
   text-align: right;
   font-weight: bold;
@@ -54,7 +51,7 @@ const Img = styled.img`
   padding: auto;
   width: 65%;
 `;
-const RemoveIceCreamButton = styled.button`
+const IceCreamRemovalButton = styled.button`
   font-weight: bold;
   background: #e0e0e0;
   padding: 0.5em;
@@ -70,9 +67,9 @@ const RemoveIceCreamButton = styled.button`
 `;
 
 export {
-  RemoveIceCreamButton,
+  IceCreamRemovalButton,
   Img,
-  PriceAmount,
+  SumAmountPrice,
   Price,
   ItemName,
   ItemCart,

@@ -1,29 +1,29 @@
-import React, { useEffect } from "react";
+import React, {useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItems from "./CartItems";
-
-import { Images } from "../../Images";
 import styled from "styled-components";
-import { setTotalPrice, shownModal } from "../../store";
-
+import { Images } from "../../Images";
+import { setOrderPrice, shownModal } from "../../store";
 
 const Cart = () => {
   const dispacth = useDispatch();
-  const selectedCartIceCream = useSelector((state) => {
-    return state.iceCreamCart.iceCreams;
+  const selectedOrder = useSelector((state) => {
+    return state.iceCreamHelper.iceCreams;
   });
 
-  let allItemsPrice = 0;
-  selectedCartIceCream.map((item) => {
-    const itemAmount = Number(item.amount);
-    const itemPrice = Number(item.price);
-    allItemsPrice = itemAmount * itemPrice + allItemsPrice;
-    return allItemsPrice;
+
+  
+  let orderPrice = 0;
+  selectedOrder.map((orderItem) => {
+    const orderItemAmount = Number(orderItem.amount);
+    const orderItemPrice = Number(orderItem.price);
+    orderPrice = orderItemAmount * orderItemPrice + orderPrice;
+    return orderPrice;
   });
 
   useEffect(() => {
-    dispacth(setTotalPrice(allItemsPrice));
-  }, [allItemsPrice]);
+    dispacth(setOrderPrice(orderPrice));
+  },[orderPrice]);
 
   const modalHandler = () => {
     dispacth(shownModal(true));
@@ -32,7 +32,7 @@ const Cart = () => {
   return (
     <>
       <CartUl>
-        {selectedCartIceCream.map((chosenIceCream) => {
+        {selectedOrder.map((chosenIceCream) => {
           const imgName = chosenIceCream.name.replace(/\s/g, "");
           return (
             <CartItems
@@ -43,11 +43,10 @@ const Cart = () => {
           );
         })}
         <TotalPrice>
-          {selectedCartIceCream.length > 0 &&
-            `Total Cart Price : ${allItemsPrice}$`}
+          {selectedOrder.length > 0 && `Total Cart Price : ${orderPrice}$`}
         </TotalPrice>
         <li>
-          {selectedCartIceCream.length > 0 && (
+          {selectedOrder.length > 0 && (
             <OrderButton onClick={modalHandler}>Order</OrderButton>
           )}
         </li>
