@@ -22,10 +22,6 @@ const getById = async (iceCreamId) => {
   return await IceCreamModel.findOne({ _id: iceCreamId });
 };
 
-const update = async (iceCreamId, data) => {
-  return await IceCreamModel.updateOne({ _id: iceCreamId }, data);
-};
-
 const deleteIceCream = async (iceCreamId) => {
   return await IceCreamModel.deleteOne({ _id: iceCreamId });
 };

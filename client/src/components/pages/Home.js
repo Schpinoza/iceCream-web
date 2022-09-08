@@ -1,9 +1,10 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import AboutUs from "../../assets/AboutUs.webp";
 import FindUsImage from "../../assets/placePhoto.webp";
 import { MenuLinkBtn } from "../Navbar/NavbarElements";
 import { OutlineButton, SmallOutlineButton } from "../../Globalstyles";
+import ArrowAnimetion from "../UI/ArrowAnimetion";
 
 const Home = () => {
   return (
@@ -18,20 +19,7 @@ const Home = () => {
             enjoy it to!
           </p>
         </SideDivLeft>
-        <ArrowContainer>
-          <ArrowSliding>
-            <Arrow></Arrow>
-          </ArrowSliding>
-          <DelayOne>
-            <Arrow></Arrow>
-          </DelayOne>
-          <DelayTwo>
-            <Arrow></Arrow>
-          </DelayTwo>
-          <DelayThree>
-            <Arrow></Arrow>
-          </DelayThree>
-        </ArrowContainer>
+        <ArrowAnimetion />
         <SideDivRight>
           <MenuLinkBtn to="/iceCream">
             <OrderOutlineButton primary>Order Here</OrderOutlineButton>
@@ -92,21 +80,6 @@ const SideDivRight = styled.div`
   }
 `;
 
-const webkitKeyframesSlide = keyframes`
-&::-webkit-slide{
-	  0% { opacity:0; transform: translateX(-15vw); }
-	 20% { opacity:1; transform: translateX(-9vw); }
-	 80% { opacity:1; transform: translateX(9vw); }
-	100% { opacity:0; transform: translateX(15vw); }
-}
-  `;
-
-const keyframesSlide = keyframes`
-    0% { opacity:0; transform: translateX(-15vw); }
- 20% { opacity:1; transform: translateX(-9vw); }
- 80% { opacity:1; transform: translateX(9vw); }
-100% { opacity:0; transform: translateX(15vw); }
- `;
 const Container = styled.div`
   text-aligh: center;
 `;
@@ -118,38 +91,7 @@ const ContainerImg = styled.div`
   background-size: cover;
   height: 736px;
 `;
-const ArrowContainer = styled.div``;
 
-const Arrow = styled.div`
-  margin-top: 300px;
-
-  width: 5vw;
-  height: 5vw;
-  border: 1vw solid;
-  border-color: white transparent transparent white;
-  transform: rotate(135deg);
-`;
-
-const ArrowSliding = styled.div`
-  position: absolute;
-  right: 43%;
-  top: 150px;
-  -webkit-animation: ${webkitKeyframesSlide} 4s linear infinite;
-  animation: ${keyframesSlide} 4s linear infinite;
-`;
-
-const DelayOne = styled(ArrowSliding)`
-  -webkit-animation-delay: 3s;
-  animation-delay: 3s;
-`;
-const DelayTwo = styled(ArrowSliding)`
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-`;
-const DelayThree = styled(ArrowSliding)`
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-`;
 const OurMaking = styled.div`
   text-align: center;
   width: 50%;
