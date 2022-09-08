@@ -13,7 +13,7 @@ const Shipping = () => {
   });
 
   const allItemsPrice = useSelector((state) => {
-    return state.totalPrice.orderTotalPrice;
+    return state.orderPrice.orderTotalPrice;
   });
 
   const date = new Date().toDateString("he-IL");

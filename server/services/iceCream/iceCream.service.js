@@ -30,13 +30,12 @@ const deleteIceCream = async (iceCreamId) => {
   return await IceCreamModel.deleteOne({ _id: iceCreamId });
 };
 
-const updateAmount = async (id, amountToReduce) => {
+const updateSupply = async (id, amountToReduce) => {
   const updateSupplyAmount = -amountToReduce;
   return await IceCreamModel.updateOne(
     { _id: id },
     { $inc: { supplyAmount: updateSupplyAmount } }
   );
-  // const iceCream = await update(id,supplyAmount,updateSupplyAmount)
 };
 
 module.exports = {
@@ -44,5 +43,5 @@ module.exports = {
   getList,
   getById,
   deleteIceCream,
-  updateAmount,
+  updateSupply,
 };
