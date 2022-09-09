@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import CartItems from "./CartItems";
 import styled from "styled-components";
 import { Images } from "../../Images";
-import { setOrderPrice, shownModal } from "../../store";
+import { setOrderPrice } from "../../store/order"
+import { shownModal } from "../../store/modal";
 
 const Cart = () => {
   const dispacth = useDispatch();

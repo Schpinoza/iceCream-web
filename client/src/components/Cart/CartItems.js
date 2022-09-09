@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { removeIceCream } from "../../store";
+import { removeIceCream } from "../../store/cartHelper";
 import {
   IceCreamRemovalButton,
   Img,

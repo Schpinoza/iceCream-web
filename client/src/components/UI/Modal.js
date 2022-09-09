@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { shownModal } from "../../store";
+import { shownModal } from "../../store/modal";
 
 const Backdrop = () => {
   const dispatch = useDispatch();

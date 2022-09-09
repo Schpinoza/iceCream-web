@@ -1,7 +1,8 @@
 import React from "react";
 import Modal from "../UI/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { resetIceCreamCart, shownModal } from "../../store";
+import { resetIceCreamCart } from "../../store/cartHelper";
+import {shownModal} from "../../store/modal"
 import Input from "../UI/Input";
 import { SmallOutlineButton } from "../../Globalstyles";
 import APIRequests from "../../services/APIRequests.js";

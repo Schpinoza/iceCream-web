@@ -4,7 +4,7 @@ import { Images } from "../../../Images";
 import CartIcon from "../../Cart/CartIcon";
 import { SmallOutlineButton } from "../../../Globalstyles";
 import { useDispatch } from "react-redux";
-import { addIceCream } from "../../../store";
+import { addIceCream } from "../../../store/cartHelper";
 
 function IceCreamItem({ iceCream }) {
   const dispatch = useDispatch();
