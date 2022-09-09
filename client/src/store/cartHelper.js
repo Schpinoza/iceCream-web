@@ -21,7 +21,6 @@ const cartSlice = createSlice({
       const chosenIceCream = state.iceCreams.find(
         (iceCream) => iceCream._id === action.payload._id
       );
-      console.log(chosenIceCream.amount);
       if (chosenIceCream.amount > 1) {
         chosenIceCream.amount = chosenIceCream.amount - 1;
       } else {
