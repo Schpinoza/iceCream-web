@@ -39,5 +39,5 @@ module.exports = {
   create,
   getIceCreamOrderById,
   getIceCreamOrderList,
-  deleteIceCreamOrder
+  deleteIceCreamOrder,
 };
