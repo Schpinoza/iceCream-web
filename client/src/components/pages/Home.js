@@ -21,7 +21,7 @@ const Home = () => {
         </SideDivLeft>
         <ArrowAnimetion />
         <SideDivRight>
-          <MenuLinkBtn to="/iceCream">
+          <MenuLinkBtn to="/ice-cream">
             <OrderOutlineButton primary>Order Here</OrderOutlineButton>
           </MenuLinkBtn>
         </SideDivRight>
@@ -63,7 +63,7 @@ const SideDivLeft = styled.div`
   width: 25%;
   float: left;
   margin-top: 300px;
-  margin-left: 6em;
+  margin-left: 96px;
   text-align: left;
 `;
 
@@ -99,7 +99,7 @@ const OurMaking = styled.div`
   padding: 100px;
   font-weight: bold;
   h1 {
-    font-size: 3.5rem;
+    font-size: 56px;
     padding: 20px;
   }
 `;
@@ -121,7 +121,7 @@ const FindUs = styled.div`
   text-align: left;
 
   h2 {
-    font-size: 5em;
+    font-size: 80px;
     padding: 20px;
   }
 `;

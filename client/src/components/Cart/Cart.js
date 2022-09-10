@@ -67,7 +67,7 @@ const TotalPrice = styled.li`
 const CartUl = styled.ul`
   max-width: 100%;
   margin: auto;
-  padding: 1rem;
+  padding: 16px;
   list-style-type: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 14px;

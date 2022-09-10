@@ -32,7 +32,7 @@ const Shipping = () => {
     const userDetails = {
       orderer: fname.value,
       email: email.value,
-      adrees: address.value,
+      address: address.value,
       city: city.value,
       zipcode: +zip.value,
       date: orderTime,

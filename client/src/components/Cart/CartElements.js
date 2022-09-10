@@ -10,8 +10,8 @@ const ItemCart = styled.li`
   display: table;
   width: 50%;
   vertical-align: middle;
-  margin: 1rem auto;
-  padding: 1.5em;
+  margin: 16px auto;
+  padding: 24px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-style: inset;
   border-width: 2px;
@@ -29,19 +29,19 @@ const CartSection = styled.div`
   vertical-align: middle;
 `;
 const ItemName = styled.h3`
-  font-size: 1.5em;
+  font-size: 24px;
   font-weight: bold;
-  letter-spacing: 0.075em;
+  letter-spacing: 1.2px;
 `;
 const Price = styled.p`
-  font-size: 0.85em;
+  font-size:13.6px;
   color: #777777;
 `;
 const SumAmountPrice = styled.p`
   padding-right: 40px;
   text-align: right;
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 20px;
   color: #20bf6b;
 `;
 const Img = styled.img`
@@ -54,8 +54,8 @@ const Img = styled.img`
 const IceCreamRemovalButton = styled.button`
   font-weight: bold;
   background: #e0e0e0;
-  padding: 0.5em;
-  font-size: 0.75em;
+  padding: 8px;
+  font-size: 12px;
   display: inline-block;
   border-radius: 60%;
   line-height: 0.85;

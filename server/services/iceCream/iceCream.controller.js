@@ -1,32 +1,32 @@
 const iceCreamService = require("./iceCream.service");
 
-const create = async (req, res) => {
+const createIceCream = async (req, res) => {
   try {
-    return res.send(await iceCreamService.save(req.body));
+    return res.send(await iceCreamService.saveIceCream(req.body));
   } catch (error) {
     return res.fail("failed to create ice cream");
   }
 };
 
-const update = async (req, res) => {
+const updateIceCream = async (req, res) => {
   try {
-    return res.send(await iceCreamService.save(req.body, req.params.id));
+    return res.send(await iceCreamService.saveIceCream(req.body, req.params.id));
   } catch (error) {
     return res.fail("failed to update ice cream");
   }
 };
 
-const getList = async (req, res) => {
+const getIceCreamList = async (req, res) => {
   try {
-    return res.send(await iceCreamService.getList());
+    return res.send(await iceCreamService.getIceCreamList());
   } catch (error) {
     return res.fail("failed to get ice creams");
   }
 };
 
-const getById = async (req, res) => {
+const getIceCreamById = async (req, res) => {
   try {
-    return res.send(await iceCreamService.getById(req.params.id));
+    return res.send(await iceCreamService.getIceCreamById(req.params.id));
   } catch (error) {
     return res.fail("failed to get ice cream");
   }
@@ -41,9 +41,9 @@ const deleteIceCream = async (req, res) => {
 };
 
 module.exports = {
-  create,
-  update,
-  getList,
-  getById,
+  createIceCream,
+  updateIceCream,
+  getIceCreamList,
+  getIceCreamById,
   deleteIceCream,
 };

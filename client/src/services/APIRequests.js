@@ -19,14 +19,14 @@ const post = async (endpoint, iceCreamObject) => {
 };
 
 const getIceCreams = async () => {
-  return await get("iceCream");
+  return await get("ice-cream");
 };
 const sendOrder = async (order) => {
   return await post(`order`, order);
 };
 
 const getOrderList = async () => {
-  return await get("order/adminOrderList");
+  return await get("order/admin-order-list");
 };
 
 const APIRequests = {

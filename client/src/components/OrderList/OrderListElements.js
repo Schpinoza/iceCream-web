@@ -18,7 +18,7 @@ export const TableRowHeader = styled.li`
   background-color: #95a5a6;
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.48px;
   border-radius: 3px;
   padding: 25px 30px;
   display: flex;
@@ -78,7 +78,7 @@ export const DivColClose = styled.div`
   padding-top: 20px;
   color: red;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 19.2px;
   flex-basis: 10%;
   text-align: center;
   cursor: pointer;
@@ -89,17 +89,10 @@ export const DivColClose = styled.div`
   }
 `;
 
-export const DetailsContainer = styled.div`
+export const DetailsContainer = styled(TableRowHeader)`
   background-color: #b9bcbd;
   display: block;
-
-  font-size: 14px;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border-radius: 3px;
-  padding: 25px 30px;
-  justify-content: space-between;
   margin-bottom: 25px;
   @media (max-width: 767px) {
     display: none;

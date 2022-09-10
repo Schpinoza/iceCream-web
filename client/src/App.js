@@ -23,11 +23,11 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/iceCream" element={<IceCream />} />
+          <Route path="/ice-cream" element={<IceCream />} />
           <Route path="/" element={<Home />} />
-          <Route path="/ConactUs" element={<ConactUs />} />
+          <Route path="/conact-us" element={<ConactUs />} />
           <Route path="/cart" element={<Cart />}></Route>
-          <Route path="/adminOrderList" element={<OrderList />} />
+          <Route path="/admin-order-list" element={<OrderList />} />
         </Routes>
       </BrowserRouter>
       <Footer />

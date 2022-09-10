@@ -31,7 +31,7 @@ export const NavLogo = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: 800;
   transition: all 0.5s ease;
   &:hover {
@@ -40,7 +40,7 @@ export const NavLogo = styled(Link)`
 `;
 
 export const NavIcon = styled(IoIceCream)`
-  margin-right: 0.8rem;
+  margin-right: 12.8px;
   transition: all 0.5s ease;
   &:hover {
     transform: scale(2);
@@ -55,7 +55,7 @@ export const MenuIcon = styled.div`
     top: 0;
     right: 0;
     transform: translate(-50%, 20%);
-    font-size: 4rem;
+    font-size: 64px;
     cursor: pointer;
   }
 `;
@@ -91,12 +91,12 @@ export const MenuItem = styled.li`
 export const MenuLink = styled(Link)`
   text-decoration: none;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 32px;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 16px 32px;
   height: 100%;
   transition: all 0.2s ease;
   &:hover {
@@ -109,7 +109,7 @@ export const MenuLink = styled(Link)`
   }
   @media only screen and (max-width: 1000px) {
     display: block;
-    padding: 3rem;
+    padding: 48px;
     text-align: center;
     transition: all 0.2s ease;
   }

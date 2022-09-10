@@ -13,7 +13,7 @@ const Order = new Schema({
   userDetails: {
     orderer: String,
     email: String,
-    adrees: String,
+    address: String,
     city: String,
     zipcode: Number,
     date: String,

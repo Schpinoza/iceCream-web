@@ -38,12 +38,12 @@ const Navbar = () => {
               </MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink onClick={closeMenu} to="/ConactUs">
+              <MenuLink onClick={closeMenu} to="/conact-us">
                 Conact Us
               </MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink to="/iceCream">Shop</MenuLink>
+              <MenuLink to="/ice-cream">Shop</MenuLink>
             </MenuItem>
             <MenuItemBtn>
               <MenuLinkBtn to="/cart">

@@ -1,24 +1,24 @@
 const IceCreamModel = require("./iceCream.model");
 
-const createOrGet = async (iceCreamId) => {
+const createOrGetIceCream = async (iceCreamId) => {
   if (iceCreamId) {
-    return await getById(iceCreamId);
+    return await getIceCreamById(iceCreamId);
   }
   return new IceCreamModel();
 };
 
-const save = async (iceCreamData, iceCreamId) => {
-  const iceCream = await createOrGet(iceCreamId);
+const saveIceCream = async (iceCreamData, iceCreamId) => {
+  const iceCream = await createOrGetIceCream(iceCreamId);
   iceCream.overwrite({ ...iceCream._doc, ...iceCreamData });
   return await iceCream.save();
 };
 
-const getList = async () => {
+const getIceCreamList = async () => {
   const iceCreams = await IceCreamModel.find();
   return iceCreams;
 };
 
-const getById = async (iceCreamId) => {
+const getIceCreamById = async (iceCreamId) => {
   return await IceCreamModel.findOne({ _id: iceCreamId });
 };
 
@@ -26,7 +26,7 @@ const deleteIceCream = async (iceCreamId) => {
   return await IceCreamModel.deleteOne({ _id: iceCreamId });
 };
 
-const updateSupply = async (id, amountToReduce) => {
+const updateIceCreamSupply = async (id, amountToReduce) => {
   const updateSupplyAmount = -amountToReduce;
   return await IceCreamModel.updateOne(
     { _id: id },
@@ -35,9 +35,9 @@ const updateSupply = async (id, amountToReduce) => {
 };
 
 module.exports = {
-  save,
-  getList,
-  getById,
+  saveIceCream,
+  getIceCreamList,
+  getIceCreamById,
   deleteIceCream,
-  updateSupply,
+  updateIceCreamSupply,
 };

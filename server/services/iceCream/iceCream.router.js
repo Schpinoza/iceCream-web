@@ -3,10 +3,10 @@ const router = express.Router();
 
 const iceCreamController = require("./iceCream.controller");
 
-router.post("/", iceCreamController.create);
-router.put("/:id", iceCreamController.update);
-router.get("/:id", iceCreamController.getById);
-router.get("/", iceCreamController.getList);
+router.post("/", iceCreamController.createIceCream);
+router.put("/:id", iceCreamController.updateIceCream);
+router.get("/:id", iceCreamController.getIceCreamById);
+router.get("/", iceCreamController.getIceCreamList);
 router.delete("/:id", iceCreamController.deleteIceCream);
 
 module.exports = router;

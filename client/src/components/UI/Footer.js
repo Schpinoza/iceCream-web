@@ -14,6 +14,6 @@ const Footerdiv = styled.footer`
   display: block;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 1.5rem;
+  padding: 24px
   color: rgba(0, 0, 0, 0.4);
 `;

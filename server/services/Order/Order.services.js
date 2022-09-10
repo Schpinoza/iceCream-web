@@ -8,7 +8,7 @@ const create = async (order) => {
   return await ordered.save();
 };
 
-const getById = async (orderId) => {
+const getIceCreamOrderById = async (orderId) => {
   return await OrderModel.findOne({ _id: orderId }).populate({
     path: "items.iceCream",
   });
@@ -20,7 +20,7 @@ const updateSupplyAmount = async (order) => {
   });
 };
 
-const getList = async () => {
+const getIceCreamOrderList = async () => {
   const allOrders = await OrderModel.find({});
   const eachOrderId = await Promise.all(
     allOrders.map((order) => {
@@ -31,8 +31,13 @@ const getList = async () => {
   return eachOrderId;
 };
 
+const deleteIceCreamOrder = async (orderId) => {
+  return await OrderModel.deleteOne({ _id: orderId });
+};
+
 module.exports = {
   create,
-  getById,
-  getList,
+  getIceCreamOrderById,
+  getIceCreamOrderList,
+  deleteIceCreamOrder
 };

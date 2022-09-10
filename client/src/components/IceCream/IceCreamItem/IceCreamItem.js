@@ -76,7 +76,7 @@ export default IceCreamItem;
 const Container = styled.form`
   border-radius: 10px;
 
-  padding: 0.5rem;
+  padding:8px;
   margin: auto;
 `;
 const AmountInput = styled.select`
@@ -95,7 +95,7 @@ const Lable = styled.label`
   font-weight: bold;
 `;
 const Img = styled.img`
-  margin: 0.5rem;
+  margin: 8px;
   max-height: auto;
   max-width: 75%;
   border-radius: 15%;
@@ -103,7 +103,7 @@ const Img = styled.img`
 
 const ProdactName = styled.div`
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 24px;
   letter-spacing: 1.5px;
 `;
 

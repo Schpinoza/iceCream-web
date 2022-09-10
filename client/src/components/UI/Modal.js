@@ -38,11 +38,11 @@ export default Modal;
 
 const ModalOverlayDiv = styled.div`
   position: fixed;
-  top: 20vh;
+  top: 100px;
   left: 5%;
   width: 90%;
   background-color: white;
-  padding: 1rem;
+  padding: 16px;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
@@ -70,7 +70,7 @@ const BackdropDiv = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 1000px;
   z-index: 20;
   background-color: rgba(0, 0, 0, 0.75);
 `;

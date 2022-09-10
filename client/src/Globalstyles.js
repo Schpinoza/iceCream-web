@@ -25,7 +25,7 @@ body{
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     line-height: 1.6;
-    font-size: 1.6rem;
+    font-size: 25.6px;
     background: #F9F9F9;
     color: #333;
     height:100%;
