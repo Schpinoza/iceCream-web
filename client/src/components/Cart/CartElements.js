@@ -34,7 +34,7 @@ const ItemName = styled.h3`
   letter-spacing: 1.2px;
 `;
 const Price = styled.p`
-  font-size:13.6px;
+  font-size: 13.6px;
   color: #777777;
 `;
 const SumAmountPrice = styled.p`

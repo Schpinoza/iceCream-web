@@ -29,7 +29,9 @@ body{
     background: #F9F9F9;
     color: #333;
     height:100%;
-
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 `;
 

@@ -62,7 +62,7 @@ const SideDivLeft = styled.div`
   box-shadow: 15px 15px rgba(136, 136, 136, 0.5);
   width: 25%;
   float: left;
-  margin-top: 300px;
+  margin-top: 200px;
   margin-left: 96px;
   text-align: left;
 `;
@@ -89,7 +89,7 @@ const ContainerImg = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 736px;
+  height: 800px;
 `;
 
 const OurMaking = styled.div`

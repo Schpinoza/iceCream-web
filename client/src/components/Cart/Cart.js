@@ -1,9 +1,9 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartItems from "./CartItems";
 import styled from "styled-components";
 import { Images } from "../../Images";
-import { setOrderPrice } from "../../store/order"
+import { setOrderPrice } from "../../store/order";
 import { shownModal } from "../../store/modal";
 
 const Cart = () => {
@@ -12,8 +12,6 @@ const Cart = () => {
     return state.iceCreamHelper.iceCreams;
   });
 
-
-  
   let orderPrice = 0;
   selectedOrder.map((orderItem) => {
     const orderItemAmount = Number(orderItem.amount);
@@ -24,7 +22,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispacth(setOrderPrice(orderPrice));
-  },[orderPrice]);
+  }, [orderPrice]);
 
   const modalHandler = () => {
     dispacth(shownModal(true));

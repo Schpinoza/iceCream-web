@@ -76,7 +76,7 @@ export default IceCreamItem;
 const Container = styled.form`
   border-radius: 10px;
 
-  padding:8px;
+  padding: 8px;
   margin: auto;
 `;
 const AmountInput = styled.select`

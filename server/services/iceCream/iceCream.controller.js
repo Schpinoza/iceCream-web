@@ -10,7 +10,9 @@ const createIceCream = async (req, res) => {
 
 const updateIceCream = async (req, res) => {
   try {
-    return res.send(await iceCreamService.saveIceCream(req.body, req.params.id));
+    return res.send(
+      await iceCreamService.saveIceCream(req.body, req.params.id)
+    );
   } catch (error) {
     return res.fail("failed to update ice cream");
   }

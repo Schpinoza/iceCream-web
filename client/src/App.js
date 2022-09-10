@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import IceCream from "./components/IceCream/IceCream";
 import Footer from "./components/UI/Footer";
@@ -15,6 +15,9 @@ const App = () => {
   const modalOn = useSelector((state) => {
     return state.modal.modalStatus;
   });
+  const selectedOrder = useSelector((state) => {
+    return state.iceCreamHelper.iceCreams;
+  });
 
   return (
     <>
@@ -26,7 +29,7 @@ const App = () => {
           <Route path="/ice-cream" element={<IceCream />} />
           <Route path="/" element={<Home />} />
           <Route path="/conact-us" element={<ConactUs />} />
-          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/cart" element={<Cart />} />
           <Route path="/admin-order-list" element={<OrderList />} />
         </Routes>
       </BrowserRouter>
