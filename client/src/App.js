@@ -15,10 +15,6 @@ const App = () => {
   const modalOn = useSelector((state) => {
     return state.modal.modalStatus;
   });
-  const selectedOrder = useSelector((state) => {
-    return state.iceCreamHelper.iceCreams;
-  });
-
   return (
     <>
       <GlobalStyles />
