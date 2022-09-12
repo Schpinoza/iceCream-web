@@ -24,7 +24,7 @@ const getIceCreamOrderList = async () => {
   const allOrders = await OrderModel.find({});
   const eachOrderId = await Promise.all(
     allOrders.map((order) => {
-      const orderList = getById(order._id);
+      const orderList = getIceCreamOrderById(order._id);
       return orderList;
     })
   );
