@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import IceCream from "./components/IceCream/IceCream";
 import Footer from "./components/UI/Footer";
@@ -15,6 +15,10 @@ const App = () => {
   const modalOn = useSelector((state) => {
     return state.modal.modalStatus;
   });
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
   return (
     <>
       <GlobalStyles />
