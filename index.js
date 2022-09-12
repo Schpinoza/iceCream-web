@@ -6,16 +6,12 @@ const router = require("./server/router/v1");
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+app.get("*", function (req, res) {
+  const index = path.join(__dirname, "build", "index.html");
+  res.sendFile(index);
+});
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/public"));
-
-  const path = require("path");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "public", "index.html"));
-  });
-}
 
 init();
 
