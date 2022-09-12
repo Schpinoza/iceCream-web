@@ -4,6 +4,10 @@ const { init } = require("./server/services/db");
 const router = require("./server/router/v1");
 
 const PORT = process.env.PORT || 3001;
+
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -12,10 +16,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 init();
 
