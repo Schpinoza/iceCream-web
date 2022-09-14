@@ -1,7 +1,7 @@
 const OrderModel = require("./Order.model");
 const iceCreamService = require("../iceCream/iceCream.service");
 
-const create = async (order) => {
+const createOrder = async (order) => {
   const ordered = new OrderModel();
   ordered.overwrite(order);
   updateSupplyAmount(order);
@@ -16,7 +16,7 @@ const getIceCreamOrderById = async (orderId) => {
 
 const updateSupplyAmount = async (order) => {
   order.items.forEach((item) => {
-    iceCreamService.updateSupply(item.iceCream, item.amount);
+    iceCreamService.updateIceCreamSupply(item.iceCream, item.amount);
   });
 };
 
@@ -36,7 +36,7 @@ const deleteIceCreamOrder = async (orderId) => {
 };
 
 module.exports = {
-  create,
+  createOrder,
   getIceCreamOrderById,
   getIceCreamOrderList,
   deleteIceCreamOrder,

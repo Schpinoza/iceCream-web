@@ -47,12 +47,7 @@ function IceCreamItem({ iceCream }) {
           onChange={handleChange}
           value={selectedAmount}
         >
-          <option
-            style={supplyAmount >= 0 && { color: "red" }}
-            value="none"
-            disabled
-            hidden
-          >
+          <option value="none" disabled hidden>
             {supplyAmount <= 0 ? "Out of stock" : "Choose amount"}
           </option>
           {updateSupply >= 1 && <option value="1">1</option>}
