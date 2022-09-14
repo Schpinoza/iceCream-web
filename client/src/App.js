@@ -15,10 +15,6 @@ const App = () => {
   const modalOn = useSelector((state) => {
     return state.modal.modalStatus;
   });
-<<<<<<< HEAD
-=======
-
->>>>>>> main
   return (
     <>
       <GlobalStyles />
