@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 require("dotenv").config();
 const { init } = require("./server/services/db");
 const router = require("./server/router/v1");
@@ -12,6 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 init();
 
 app.use("/v1", router);
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

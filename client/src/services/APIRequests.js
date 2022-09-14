@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "/v1/";
+const baseUrl = "https://ices-web-mern.herokuapp.com//v1/";
 
 const get = async (endpoint) => {
   try {
