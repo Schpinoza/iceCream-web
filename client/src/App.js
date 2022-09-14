@@ -9,7 +9,7 @@ import Cart from "./components/Cart/Cart";
 import Shipping from "./components/shipping/Shipping";
 import OrderList from "./components/OrderList/OrderList";
 import GlobalStyles from "./Globalstyles";
-import ConactUs from "./components/Pages/ConactUs";
+import ConactUs from "./components/pages/ConactUs";
 
 const App = () => {
   const modalOn = useSelector((state) => {
