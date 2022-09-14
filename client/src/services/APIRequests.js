@@ -5,7 +5,7 @@ const baseUrl = "https://ices-web-mern.herokuapp.com//v1/";
 const get = async (endpoint) => {
   try {
     const response = await axios.get(baseUrl + endpoint);
-    console.log(response);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
