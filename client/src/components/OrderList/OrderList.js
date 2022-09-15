@@ -33,9 +33,10 @@ const OrderList = () => {
           <DivColThree>Amount Due</DivColThree>
           <DivColFour>Order Details</DivColFour>
         </TableHeader>
-        {allOrders.map((order) => {
-          return <OrderListRow key={order._id} order={order} />;
-        })}
+        {allOrders &&
+          allOrders.map((order) => {
+            return <OrderListRow key={order._id} order={order} />;
+          })}
       </ul>
     </Container>
   );

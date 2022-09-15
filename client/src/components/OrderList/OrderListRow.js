@@ -28,19 +28,21 @@ function OrderListRow({ order }) {
   const date = orderDetails.date;
   const zipcode = orderDetails.zipcode;
 
-  const iceCreamDetails = orderItems.map((item) => {
-    const iceCreamflavor = item.iceCream.name;
-    const amount = item.amount;
-    const price = item.iceCream.price;
+  const iceCreamDetails =
+    orderItems &&
+    orderItems.map((item) => {
+      const iceCreamflavor = item.iceCream.name;
+      const amount = item.amount;
+      const price = item.iceCream.price;
 
-    return (
-      <TableRowIce>
-        <DivColOne data-label="Ice Cream Type">{iceCreamflavor}</DivColOne>
-        <DivColTwo data-label="Price">{`${price} $`}</DivColTwo>
-        <DivColThree data-label="Amount">{amount}</DivColThree>
-      </TableRowIce>
-    );
-  });
+      return (
+        <TableRowIce>
+          <DivColOne data-label="Ice Cream Type">{iceCreamflavor}</DivColOne>
+          <DivColTwo data-label="Price">{`${price} $`}</DivColTwo>
+          <DivColThree data-label="Amount">{amount}</DivColThree>
+        </TableRowIce>
+      );
+    });
   const detailsOn = () => {
     setShowDetails(true);
   };

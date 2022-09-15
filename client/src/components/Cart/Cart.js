@@ -13,12 +13,13 @@ const Cart = () => {
   });
 
   let orderPrice = 0;
-  selectedOrder.map((orderItem) => {
-    const orderItemAmount = Number(orderItem.amount);
-    const orderItemPrice = Number(orderItem.price);
-    orderPrice = orderItemAmount * orderItemPrice + orderPrice;
-    return orderPrice;
-  });
+  selectedOrder &&
+    selectedOrder.map((orderItem) => {
+      const orderItemAmount = Number(orderItem.amount);
+      const orderItemPrice = Number(orderItem.price);
+      orderPrice = orderItemAmount * orderItemPrice + orderPrice;
+      return orderPrice;
+    });
 
   useEffect(() => {
     dispacth(setOrderPrice(orderPrice));
@@ -31,16 +32,17 @@ const Cart = () => {
   return (
     <>
       <CartUl>
-        {selectedOrder.map((chosenIceCream) => {
-          const imgName = chosenIceCream.name.replace(/\s/g, "");
-          return (
-            <CartItems
-              key={chosenIceCream._id}
-              img={Images[imgName]}
-              chosenIceCream={chosenIceCream}
-            />
-          );
-        })}
+        {selectedOrder &&
+          selectedOrder.map((chosenIceCream) => {
+            const imgName = chosenIceCream.name.replace(/\s/g, "");
+            return (
+              <CartItems
+                key={chosenIceCream._id}
+                img={Images[imgName]}
+                chosenIceCream={chosenIceCream}
+              />
+            );
+          })}
         <TotalPrice>
           {selectedOrder.length > 0 && `Total Cart Price : ${orderPrice}$`}
         </TotalPrice>
