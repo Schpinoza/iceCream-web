@@ -9,8 +9,10 @@ function AvilableIceCream() {
 
   const getIceCreams = async () => {
     const allIceCream = await APIRequests.getIceCreams();
-    setIceCreams(allIceCream);
-    setIsLoadding(false);
+    if (allIceCreams.length > 0) {
+      setIsLoadding(false);
+      return setIceCreams(allIceCream);
+    }
   };
 
   useEffect(() => {
