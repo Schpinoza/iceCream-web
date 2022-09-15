@@ -9,10 +9,8 @@ function AvilableIceCream() {
 
   const getIceCreams = async () => {
     const allIceCream = await APIRequests.getIceCreams();
-    if (allIceCreams.length > 0) {
-      setIsLoadding(false);
-      return setIceCreams(allIceCream);
-    }
+    setIceCreams(allIceCream || []);
+    setIsLoadding(false);
   };
 
   useEffect(() => {
@@ -22,9 +20,8 @@ function AvilableIceCream() {
   return (
     <Card>
       {!isLoadding &&
-        iceCreams &&
-        iceCreams.map((iceCream) => {
-          return <IceCreamItem iceCream={iceCream} key={iceCream._id} />;
+        iceCreams?.map((iceCream) => {
+          return <IceCreamItem iceCream={iceCream} key={iceCream?._id} />;
         })}
       {isLoadding && <div>Is Loadding...</div>}
     </Card>
