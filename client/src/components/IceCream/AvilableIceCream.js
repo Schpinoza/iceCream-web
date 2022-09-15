@@ -5,7 +5,7 @@ import APIRequests from "../../services/APIRequests.js";
 
 function AvilableIceCream() {
   const [iceCreams, setIceCreams] = useState([]);
-  const [isLoadding, setIsLoadding] = useState(false);
+  const [isLoadding, setIsLoadding] = useState(true);
 
   const getIceCreams = async () => {
     const allIceCream = await APIRequests.getIceCreams();
@@ -20,6 +20,7 @@ function AvilableIceCream() {
   return (
     <Card>
       {!isLoadding &&
+        iceCreams &&
         iceCreams.map((iceCream) => {
           return <IceCreamItem iceCream={iceCream} key={iceCream._id} />;
         })}
