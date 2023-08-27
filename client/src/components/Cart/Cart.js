@@ -27,7 +27,7 @@ const Cart = () => {
   const modalHandler = () => {
     dispacth(shownModal(true));
   };
-
+//TEST: to commit
   return (
     <>
       <CartUl>
